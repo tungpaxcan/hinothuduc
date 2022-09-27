@@ -12,30 +12,17 @@ namespace hinothuduc.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class UserAdmin
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
-        {
-            this.ImageProducts = new HashSet<ImageProduct>();
-        }
-    
         public int Id { get; set; }
-        public Nullable<int> IdCateProcduct { get; set; }
         public string Name { get; set; }
-        public string Title { get; set; }
-        public string Meta { get; set; }
-        public string Image { get; set; }
-        public string C_content_TechParameter { get; set; }
+        public string User { get; set; }
+        public string Pass { get; set; }
         public string Description { get; set; }
         public Nullable<System.DateTime> CreateDate { get; set; }
         public string CreateBy { get; set; }
         public Nullable<System.DateTime> ModifyDate { get; set; }
         public string ModifyBy { get; set; }
         public Nullable<bool> Status { get; set; }
-    
-        public virtual CateProduct CateProduct { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ImageProduct> ImageProducts { get; set; }
     }
 }

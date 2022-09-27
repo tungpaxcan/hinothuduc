@@ -8,33 +8,10 @@ using hinothuduc.Models;
 
 namespace hinothuduc.Areas.Hino.Controllers
 {
-    public class BannerController : BaseController
+    public class CateController : BaseController
     {
         private hinothuducEntities db = new hinothuducEntities();
-        // GET: Hino/Banner
-        public string UploadImage(HttpPostedFileBase file)
-        {
-            if (ModelState.IsValid)
-            {
-                if (file != null && file.ContentLength > 0)
-                {
-                    var now = DateTime.Now.ToString().Trim();
-                    var index1 = now.IndexOf(" ");
-                    var sub1 = now.Substring(0, index1);
-                    var sub11 = sub1.Replace("/", "");
-                    var index2 = now.IndexOf(" ", index1 + 1);
-                    var sub2 = now.Substring(index1 + 1);
-                    var sub21 = sub2.Replace(":", "");
-                    string _FileName = "";
-                    int index = file.FileName.IndexOf('.');
-                    _FileName = sub11 + sub21 + "Product" + file.FileName;
-                    file.SaveAs(Server.MapPath("/Images/" + _FileName));
-                    return "/Images/" + _FileName;
-                }
-            }
-            return "";
-
-        }
+        // GET: Hino/Cate
         public ActionResult Index()
         {
             return View();
@@ -62,12 +39,11 @@ namespace hinothuduc.Areas.Hino.Controllers
             try
             {
                 var pageSize = pagenum;
-                var a = (from b in db.Banners.Where(x => x.Id > 0 && x.Status == true)
+                var a = (from b in db.CateProducts.Where(x => x.Id > 0 && x.Status == true)
                          select new
                          {
                              id = b.Id,
-                             name=b.Name,
-                             image = b.Image,
+                             name = b.Name,
                          }).ToList().Where(x => x.name.ToLower().Contains(seach));
                 var pages = a.Count() % pageSize == 0 ? a.Count() / pageSize : a.Count() / pageSize + 1;
                 var c = a.Skip((page - 1) * pageSize).Take(pageSize).ToList();
@@ -80,7 +56,7 @@ namespace hinothuduc.Areas.Hino.Controllers
             }
         }
         [HttpPost]
-        public JsonResult Add(string name, string image)
+        public JsonResult Add(string name, string title,string meta)
         {
             try
             {
@@ -88,7 +64,7 @@ namespace hinothuduc.Areas.Hino.Controllers
                 var nameAdmin = session.Name;
                 var d = new Banner();
                 d.Name = name;
-                d.Image = image;
+                
                 d.CreateDate = DateTime.Now;
                 d.ModifyDate = DateTime.Now;
                 d.CreateBy = nameAdmin;
@@ -105,7 +81,7 @@ namespace hinothuduc.Areas.Hino.Controllers
             }
         }
         [HttpPost]
-        public JsonResult Edit(int id,string name,string image)
+        public JsonResult Edit(int id, string name, string image)
         {
             try
             {
@@ -142,5 +118,4 @@ namespace hinothuduc.Areas.Hino.Controllers
                 return Json(new { code = 500, msg = "Xóa Thất Bại" }, JsonRequestBehavior.AllowGet);
             }
         }
-    }
 }

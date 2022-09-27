@@ -130,7 +130,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Hino\Controllers\BannerController.cs" />
     <Compile Include="Areas\Hino\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Hino\Controllers\CateController.cs" />
     <Compile Include="Areas\Hino\Controllers\DefaultController.cs" />
+    <Compile Include="Areas\Hino\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Hino\HinoAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -169,9 +171,14 @@
     <Compile Include="Models\Service.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserAdmin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Scripts\Banner.js" />
+    <Content Include="Areas\Scripts\Cate.js" />
     <Content Include="assets\css\pages\error\error-3.css" />
     <Content Include="assets\css\pages\error\error-4.css" />
     <Content Include="assets\css\pages\error\error-5.css" />
@@ -2108,8 +2115,8 @@
     <Content Include="Images\logohino-1024x1024 %281%29.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -2118,13 +2125,6 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Hino\Views\web.config" />
     <Content Include="Areas\Hino\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Hino\Views\Shared\_Layout.cshtml" />
@@ -2171,6 +2171,19 @@
     <Content Include="assets\plugins\global\fonts\summernote\summernote.ttf" />
     <Content Include="assets\plugins\global\fonts\summernote\summernote.woff" />
     <Content Include="assets\plugins\global\fonts\summernote\summernote.woff2" />
+    <Content Include="Areas\Hino\Views\HomeAdmin\Index.cshtml" />
+    <Content Include="Areas\Hino\Views\Banner\Index.cshtml" />
+    <Content Include="Areas\Hino\Views\Banner\Adds.cshtml" />
+    <Content Include="Areas\Hino\Views\Banner\Edits.cshtml" />
+    <Content Include="Areas\Hino\Views\Cate\Index.cshtml" />
+    <Content Include="Areas\Hino\Views\Cate\Adds.cshtml" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2215,7 +2228,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Hino\Data\" />
-    <Folder Include="Areas\Hino\Views\Banner\" />
     <Folder Include="Areas\Hino\Views\Base\" />
   </ItemGroup>
   <ItemGroup>

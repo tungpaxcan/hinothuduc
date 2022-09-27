@@ -36,10 +36,10 @@ namespace hinothuduc.Areas.Hino.Controllers
         }
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (Session["admin"] == null)
+            if (Session["user"] == null)
             {
                 filterContext.Result = new RedirectToRouteResult(
-                    new System.Web.Routing.RouteValueDictionary(new { controller = "Default", action = "Login" }));
+                    new System.Web.Routing.RouteValueDictionary(new { controller = "Default", action = "Index" }));
             }
             base.OnActionExecuting(filterContext);
         }
