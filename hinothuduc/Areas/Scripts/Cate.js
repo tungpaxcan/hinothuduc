@@ -14,8 +14,9 @@ $('#page').on('click', 'li', function (e) {
 
 
 function Cate(pagenum, page, seach) {
+    var Stt = 1;
     $.ajax({
-        url: '/banner/List',
+        url: '/cate/List',
         type: 'get',
         data: { pagenum, page, seach },
         success: function (data) {
@@ -24,9 +25,8 @@ function Cate(pagenum, page, seach) {
             if (data.code == 200) {
                 $.each(data.c, function (k, v) {
                     let table = '<tr id="' + v.id + '" role="row" class="odd">';
-                    table += '<td>' + v.id + '</td>'
-                    table += '<td>' + v.name + '</td>'
-                    table += '<td ><img style="width:200px" src="' + v.image + '" /></td>'
+                    table += '<td>' + (Stt++) + '</td>'
+                    table += '<td><a href="/Hino/Product/Index/' + v.id + '">' + v.name + ' <img src="/Images/icons8-open-file-folder-18.png" /></a></td>'
                     table += '<td class="action" nowrap="nowrap">';
                     table += '<div class="dropdown dropdown-inline">';
                     table += '<a href="javascript:;" class="btn btn-sm btn-clean btn-icon" data-toggle="dropdown">';
@@ -140,24 +140,22 @@ function Add() {
 function Edit() {
     var id = $('#id').val().trim();
     var name = $('#name').val().trim();
-    var image = $('#picturefile').val().trim();
+    var title = $('#title').val().trim();
+    var meta = $('#meta').val().trim();
     if (name.length <= 0) {
-        alert("Nhập Tên")
+        alert("Nhập Tên !!!")
         return;
-    } if (image.length <= 0) {
-        alert("Chọn Hình Ảnh !!!")
-        return;
-    }
+    } 
     $.ajax({
-        url: '/banner/Edit',
+        url: '/cate/Edit',
         type: 'post',
         data: {
-            id, name, image
+            id, name, title,meta
         },
         success: function (data) {
             if (data.code == 200) {
                 Swal.fire({
-                    title: "Sửa Banner Thành Công",
+                    title: "Tạo Loại Sản Phẩm Thành Công",
                     icon: "success",
                     buttonsStyling: false,
                     confirmButtonText: "Confirm me!",
@@ -165,12 +163,12 @@ function Edit() {
                         confirmButton: "btn btn-primary"
                     }
                 });
-                window.location.href = "/Hino/banner/Index";
+                window.location.href = "/Hino/Cate/Index";
             } else if (data.code == 300) {
                 alert(data.msg)
             }
             else {
-                alert("Sửa Banner Thất Bại")
+                alert("Sửa Loại Sản Phẩm Thất Bại")
             }
         }
     })
@@ -181,7 +179,7 @@ $(document).on('click', "a[name='delete']", function () {
     var id = $(this).closest('tr').attr('id');
     if (confirm("Bạn Muốn Xóa Dữ Liệu Này ???")) {
         $.ajax({
-            url: '/banner/Delete',
+            url: '/cate/Delete',
             type: 'post',
             data: {
                 id
@@ -189,7 +187,7 @@ $(document).on('click', "a[name='delete']", function () {
             success: function (data) {
                 if (data.code == 200) {
                     Swal.fire({
-                        title: "Xóa Banner Thành Công",
+                        title: "Xóa Loại Sản Phẩm Thành Công",
                         icon: "success",
                         buttonsStyling: false,
                         confirmButtonText: "Confirm me!",
@@ -197,7 +195,7 @@ $(document).on('click', "a[name='delete']", function () {
                             confirmButton: "btn btn-primary"
                         }
                     });
-                    window.location.href = "/Hino/Banner/Index";
+                    window.location.href = "/Hino/Cate/Index";
                 }
                 else {
                     alert(data.msg)
@@ -207,31 +205,6 @@ $(document).on('click', "a[name='delete']", function () {
     }
 })
 
-//--------------------hien ten hinh--------------------------
-$('#btnUpload').click(function () {
-    $('#fileUpload').trigger('click');
-});
-//----------------------chon file-------------------------
-$('#fileUpload').change(function () {
-    if (window.FormData !== undefined) {
-        let fileUpload = $('#fileUpload').get(0);
-        let files = fileUpload.files;
-        let formdata = new FormData();
-        formdata.append('file', files[0]);
-        $.ajax({
-            type: 'post',
-            url: '/hino/banner/UploadImage',
-            contentType: false,
-            processData: false,
-            data: formdata,
-            success: function (urlImage) {
-                $('#picture').attr('src', urlImage);
-                $('#picturefile').val(urlImage);
-            }
-        })
-    }
-
-});
 
 //cat chuoi
 $('#name').keyup(function () {

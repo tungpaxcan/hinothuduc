@@ -27,7 +27,7 @@ namespace hinothuduc.Areas.Hino.Controllers
                     var sub21 = sub2.Replace(":", "");
                     string _FileName = "";
                     int index = file.FileName.IndexOf('.');
-                    _FileName = sub11 + sub21 + "Product" + file.FileName;
+                    _FileName = sub11 + sub21 + "banner" + file.FileName;
                     file.SaveAs(Server.MapPath("/Images/" + _FileName));
                     return "/Images/" + _FileName;
                 }

@@ -1,0 +1,268 @@
+﻿@model hinothuduc.Models.Product
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<input hidden value="@Model.Id" id="id" />
+<div class="page-title shop-page-title product-page-title">
+    <div class="page-title-inner flex-row medium-flex-wrap container">
+        <div class="flex-col flex-grow medium-text-center">
+            <div class="is-medium">
+                <nav class="woocommerce-breadcrumb breadcrumbs uppercase"><a href="/">Trang chủ</a> <span class="divider">&#47;</span> <a href="/danh-muc/@Model.CateProduct.Meta/@Model.CateProduct.Id">@Model.CateProduct.Name</a></nav>
+            </div>
+        </div>
+
+        <div class="flex-col medium-text-center">
+            <ul class="next-prev-thumbs is-small ">
+                <li class="prod-dropdown has-dropdown" id="productnext">
+                 
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<main id="main" class="">
+    <div class="shop-container">
+        <div class="container">
+            <div class="woocommerce-notices-wrapper"></div>
+        </div>
+        <div id="product-40366" class="product type-product post-40366 status-publish first instock product_cat-xe-tai-hino has-post-thumbnail shipping-taxable product-type-simple">
+            <div class="product-container">
+                <div class="product-main">
+                    <div class="row content-row mb-0">
+                        <div class="product-gallery col large-8">
+                            <div class="conwidth">
+                                <div class="clearfix owidth box">
+                                    <div class="left">
+                                        <div class="pc-slide">
+                                            <div class="view">
+                                                <div class="box on">
+                                                    <img id="img_01" class="my-foto" src="@Model.Image" alt="@Model.Title" style="visibility: visible;width:100%;">
+                                                </div>
+                                            </div>
+                                            <div class="preview">
+                                                <div class="swiper-container mySwiper">
+                                                    <div class="swiper-wrapper" id="imgadd">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div class="product-info summary col-fit col entry-summary product-summary text-left">
+                                <h1 class="product-title product_title entry-title">
+                                    @Model.Name
+                                </h1>
+
+                                <div class="price-wrapper">
+                                    <p class="price product-page-price ">
+                                    </p>
+                                </div>
+                                <div class="product_meta">
+                                    <span class="posted_in">Danh mục: <a href="/danh-muc/@Model.CateProduct.Meta/@Model.IdCateProcduct" rel="tag">@Model.CateProduct.Name</a></span>
+                                </div>
+                                <div class="social-icons share-icons share-row relative">
+</div>
+                            </div>
+                            <div id="product-sidebar" class="col large-2 hide-for-medium product-sidebar-small">
+                                <aside id="custom_html-2" class="widget_text widget widget_custom_html">
+                                    <div class="textwidget custom-html-widget">
+                                        <div class="hotline-ho-tro">
+
+                                            <span class="info-hotline">Gọi ngay để được tư vấn</span>
+
+                                            <span class="info2-hotline">Hotline tư vấn</span>
+
+                                            <strong>
+                                                0932.678.503
+                                            </strong>
+
+                                        </div>
+                                    </div>
+                                </aside>
+                            </div>
+                        </div>
+                </div>
+                <div class="product-footer">
+                    <div class="container">
+                        <div class="woocommerce-tabs wc-tabs-wrapper container tabbed-content">
+                            <ul class="tabs wc-tabs product-tabs small-nav-collapse nav nav-uppercase nav-line nav-left" role="tablist">
+                                <li class="description_tab active" id="tab-title-description" role="tab" aria-controls="tab-description">
+                                    <a href="#tab-description">
+                                        Mô tả
+                                    </a>
+                                </li>
+                                <li class="reviews_tab " id="tab-title-reviews" role="tab" aria-controls="tab-reviews">
+                                    <a href="#tab-reviews">
+                                        Đánh giá (0)
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-panels">
+                                <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content active" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
+                                    <div class="tns-title-detail" style="text-align: center;">THÔNG TIN SẢN PHẨM</div>
+                                    <div class="thongso-chitiet">
+                                        <h1 style="text-align: center;"><strong>THÔNG SỐ KỸ THUẬT</strong></h1>
+                                        @(new HtmlString(Model.Content))
+                                    </div>
+                                    <p><strong>Vui lòng liên hệ hotline : <a href="tel:0932678503">0932.678.503</a> để được tư vấn.</strong></p>
+                                </div>
+                                <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content " id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews">
+                                    <div id="reviews" class="woocommerce-Reviews row">
+                                        <div id="comments" class="col large-12">
+                                            <h3 class="woocommerce-Reviews-title normal">
+                                                Đánh giá
+                                            </h3>
+                                            <p class="woocommerce-noreviews">Chưa có đánh giá nào.</p>
+                                        </div>
+                                        <div id="review_form_wrapper" class="large-12 col">
+                                            <div id="review_form" class="col-inner">
+                                                <div class="review-form-inner has-border">
+                                                    <div id="respond" class="comment-respond">
+                                                        <h3 id="reply-title" class="comment-reply-title">Hãy là người đầu tiên nhận xét &ldquo;XE TẢI HINO 6,4 TẤN THÙNG BẠT INOX BỬNG NHÔM&rdquo; <small><a rel="nofollow" id="cancel-comment-reply-link" href="/san-pham/xe-tai-hino-64-tan-thung-bat-inox-bung-nhom/#respond" style="display:none;">Hủy</a></small></h3><p class="must-log-in">Bạn phải <a href="https://thegioixehino.com/tai-khoan/">đăng nhập</a> để gửi đánh giá.</p>
+                                                    </div><!-- #respond -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="related related-products-wrapper product-section">
+                            <h3 class="product-section-title container-width product-section-title-related pt-half pb-half uppercase">
+                                Sản phẩm tương tự
+                            </h3>
+                            <div id="SanPhamTuongTu" class="row large-columns-4 medium-columns-3 small-columns-2 row-small slider row-slider slider-nav-reveal slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div><!-- shop container -->
+
+</main>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('table').css('width','100%')
+        })
+        ImgAdd()
+        productnext()
+        SanPhamTuongTu()
+        function productnext() {
+            var id = $('#id').val().trim()
+            $.ajax({
+                url: '/products/ProductNext',
+                type: 'get',
+                data: {
+                    id
+                },
+                success: function (data) {
+                    $('#productnext').empty();
+                    if (data.code == 200) {
+                        $.each(data.a, function (k, v) {
+                            let a = '<a href="/san-pham/'+v.meta+'/'+v.id+'" rel="next" class="button icon is-outline circle">'
+                               a+='<img src = "/Images/icons8-right-20.png" />'
+                            a +='</a>'
+                            a +='<div class="nav-dropdown">'
+                            a += ' <a title="' + v.name + '" href="/san-pham/' + v.meta + '/' + v.id +'">'
+                            a +='<img width="100" height="100" src="'+v.image+'" />'
+                            a +='</a>'
+                            a +='</div>'
+                            $('#productnext').append(a)
+                        })
+                    }
+                }
+            })
+        }
+        function ImgAdd() {
+            var id = $('#id').val().trim()
+            $.ajax({
+                url: '/products/ImgAdd',
+                type: 'get',
+                data: {
+                    id
+                },
+                success: function (data) {
+                    $('#imgadd').empty();
+                    if (data.code == 200) {
+                        $.each(data.a, function (k, v) {
+                            let a = '<div class="swiper-slide" style="width:25%">'
+                                 a+='<div name="swapimg" class="smallimg"> <img loading="lazy" id="img_01" src="'+v.image+'" data-zoom-image="'+v.image+'" alt="" style="visibility: visible;width:100%;"></div>'
+                            a +='</div>'
+                            $('#imgadd').append(a)
+                        })
+                    }
+                }
+            })
+        }
+        function SanPhamTuongTu() {
+            var idcate =@Model.IdCateProcduct
+            var id =@Model.Id
+            $.ajax({
+                url: '/products/SanPhamTuongTu',
+                type: 'get',
+                data: {
+                    idcate,id
+                },
+                success: function (data) {
+                    $('#SanPhamTuongTu').empty();
+                    if (data.code == 200) {
+                        $.each(data.a, function (k, v) {
+                            let a = '<div class="product-small col has-hover product type-product post-4470 status-publish instock product_cat-xe-tai-hino has-post-thumbnail shipping-taxable product-type-simple">'
+                               a+='<div class="col-inner">'
+                                a+='<div class="badge-container absolute left top z-1">'
+                            a +='</div>'
+                            a +='<div class="product-small box ">'
+                            a +='<div class="box-image">'
+                            a +='<div class="image-fade_in_back">'
+                            a +='<a href="/san-pham/'+v.meta+'/'+v.id+'">'
+                            a +='<img width="600" height="400" src="'+v.image+'" />'
+                            a +='</a>'
+                            a +='</div>'
+                            a +='<div class="image-tools is-small top right show-on-hover">'
+                            a +='</div>'
+                            a +='<div class="image-tools is-small hide-for-small bottom left show-on-hover">'
+                            a +='</div>'
+                            a +='<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">'
+                            a +='</div>'
+                            a +='</div>'
+                            a += '<div class="box-text box-text-products text-center grid-style-2">'
+                            a += '<div class="title-wrapper"><p class="name product-title woocommerce-loop-product__title"><a href="/san-pham/' + v.meta + '/' + v.id + '" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">' + v.name + '</a></p></div><div class="price-wrapper">'
+                            a +='</div>'
+                            a +='</div>'
+                            a +='</div>'
+                            a +='</div>'
+                            a +='</div>'
+                            $('#SanPhamTuongTu').append(a)
+                        })
+                    }
+                }
+            })
+        }
+        var swiper = new Swiper(".mySwiper", {
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            width: 90,
+        });
+        $(document).on('click', "div[name='swapimg']", function () {
+            let image = $(this).children('img').attr('src')
+            $('.my-foto').attr('src', image)
+            $('#img_01').ezPlus({
+                gallery: 'gal1', cursor: 'pointer', galleryActiveClass: 'active',
+                imageCrossfade: true, loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif'
+            });
+        })
+    </script>
+    }

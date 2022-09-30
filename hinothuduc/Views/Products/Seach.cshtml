@@ -1,0 +1,149 @@
+﻿@model IEnumerable<hinothuduc.Models.Product>
+@{
+    ViewBag.Title = "Tìm kiếm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="shop-page-title category-page-title page-title ">
+    <div class="page-title-inner flex-row  medium-flex-wrap container">
+        <div class="flex-col flex-grow medium-text-center">
+            <h1 class="shop-page-title is-xlarge">Tìm Kiếm</h1>
+            <div class="is-medium">
+                <nav class="woocommerce-breadcrumb breadcrumbs uppercase">
+                    <a href="/">Trang chủ</a> <span class="divider">&#47;</span>
+                </nav>
+            </div>
+            <div class="category-filtering category-filter-row show-for-medium">
+                <a href="#" data-open="#shop-sidebar" data-visible-after="true" data-pos="left" class="filter-button uppercase plain">
+                    <img src="~/Images/icons8-filter-16.png" />
+                    <strong>Lọc</strong>
+                </a>
+                <div class="inline-block">
+                </div>
+            </div>
+        </div>
+        <div class="flex-col medium-text-center">
+            <form class="woocommerce-ordering" method="get">
+                <select name="orderby" class="orderby" aria-label="Đơn hàng của cửa hàng">
+                    <option value="menu_order" selected='selected'>Thứ tự mặc định</option>
+                    <option value="popularity">Thứ tự theo mức độ phổ biến</option>
+                    <option value="rating">Thứ tự theo điểm đánh giá</option>
+                    <option value="date">Mới nhất</option>
+                    <option value="price">Thứ tự theo giá: thấp đến cao</option>
+                    <option value="price-desc">Thứ tự theo giá: cao xuống thấp</option>
+                </select>
+                <input type="hidden" name="paged" value="1" />
+            </form>
+        </div>
+    </div>
+</div>
+<main id="main" class="">
+    <div class="row category-page-row">
+
+        <div class="col large-3 hide-for-medium ">
+            <div id="shop-sidebar" class="sidebar-inner col-inner">
+                <aside id="custom_html-3" class="widget_text widget widget_custom_html">
+                    <div class="textwidget custom-html-widget">
+                        <div class="hotline-ho-tro">
+
+                            <span class="info-hotline">Gọi ngay để được tư vấn</span>
+
+                            <span class="info2-hotline">Hotline tư vấn</span>
+
+                            <strong>
+                                0932.678.503
+                            </strong>
+
+                        </div>
+                    </div>
+                </aside><aside id="woocommerce_products-2" class="widget woocommerce widget_products">
+                    <span class="widget-title shop-sidebar">Sản phẩm</span><div class="is-divider small"></div><ul class="product_list_widget" id="10sp">
+                    </ul>
+                </aside>		<aside id="flatsome_recent_posts-2" class="widget flatsome_recent_posts">
+                    <span class="widget-title shop-sidebar">Bài viết &#8211; tin tức</span><div class="is-divider small"></div><ul id="blog10">
+                    </ul>
+                </aside>
+            </div>
+        </div>
+        <div class="col large-9">
+            <div class="shop-container">
+                <div class="term-description">
+                    <p>&nbsp;</p>
+                    <div id="eJOY__extension_root" style="all: unset;"></div>
+                </div>
+                <div class="woocommerce-notices-wrapper"></div><div class="products row row-small large-columns-4 medium-columns-3 small-columns-2 has-equal-box-heights" id="showproduct">
+    @foreach (var item in Model)
+    {<div class="product-small col has-hover product type-product post-4214 status-publish first instock product_cat-xe-chuyen-dung-hino has-post-thumbnail shipping-taxable product-type-simple">
+            <div class="col-inner">
+                <div class="badge-container absolute left top z-1">
+                </div>
+                <div class="product-small box ">
+                    <div class="box-image">
+                        <div class="image-fade_in_back">
+                            <a href="/san-pham/@item.Meta/@item.Id">
+                                <img width="276" height="183" src="@item.Image" data-src="@item.Image" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail lazy-load-active" alt=""><img width="259" height="194" src="@item.Image" data-src="@item.Image" class="show-on-hover absolute fill hide-for-small back-image lazy-load-active" alt="">
+                            </a>
+                        </div>
+                        <div class="image-tools is-small top right show-on-hover">
+                        </div>
+                        <div class="image-tools is-small hide-for-small bottom left show-on-hover">
+                        </div>
+                        <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
+                        </div>
+                    </div>
+
+                    <div class="box-text box-text-products text-center grid-style-2">
+                        <div class="title-wrapper"><p class="name product-title woocommerce-loop-product__title"><a href="/san-pham/@item.Meta/@item.Id" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">@item.Name</a></p></div><div class="price-wrapper">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</div><!-- row --><div class="container">
+                    <nav class="woocommerce-pagination">
+                        <ul class="page-numbers nav-pagination links text-center pagination" id="page"></ul>
+                    </nav>
+                </div>
+            </div><!-- shop container -->
+        </div>
+    </div>
+</main>
+@section scripts{
+    <script>
+        Blog10()
+        function Blog10() {
+            $.ajax({
+                url: '/blogs/Blog10',
+                type: 'get',
+                success: function (data) {
+                    $('#blog10').empty();
+                    if (data.code == 200) {
+                        $.each(data.a, function (k, v) {
+                            let a = '<li class="recent-blog-posts-li">'
+                            a += '<div class="flex-row recent-blog-posts align-top pt-half pb-half" >'
+                            a += '<div class="flex-col mr-half">'
+                            a += '<div class="badge post-date  badge-circle-inside">'
+                            a += '<div class="badge-inner bg-fill" style="background-image: url(\'../../' + v.image + '\'); border:0;">'
+                            a += '</div>'
+                            a += '</div>'
+                            a += '</div>'
+                            a += '<div class="flex-col flex-grow">'
+                            a += '<a href="/tin-tuc/' + v.meta + '/' + v.id + '" title="' + v.name + '">' + v.name + '</a>'
+                            a += '<span class="post_comments op-7 block is-xsmall"><a href="/tin-tuc/' + v.meta + '/' + v.id + '"></a></span>'
+                            a += ' </div>'
+                            a += '</div >'
+                            a += '</li>'
+                            $('#blog10').append(a)
+                        })
+                    }
+                }
+            })
+        }
+
+    </script>
+}
+
+
+

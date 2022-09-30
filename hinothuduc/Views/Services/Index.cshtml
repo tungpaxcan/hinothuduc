@@ -1,0 +1,180 @@
+﻿@model IEnumerable<hinothuduc.Models.Service>
+@{
+    ViewBag.Title = "Dịch Vụ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main" class="">
+    <div id="content" class="blog-wrapper blog-archive page-wrapper">
+        <header class="archive-page-header">
+            <div class="row">
+                <div class="large-12 text-center col">
+                    <h1 class="page-title is-large uppercase">
+                        <span>Dịch vụ</span>
+                    </h1>
+                </div>
+            </div>
+        </header>
+        <div class="row row-large ">
+            <div class="large-9 col">
+                <div class="row large-columns-1 medium-columns- small-columns-1" id="allservice">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col post-item">
+                            <div class="col-inner">
+                                <a href="/dich-vu/@item.Meta/@item.Id" class="plain">
+                                    <div class="box box-vertical box-text-bottom box-blog-post has-hover">
+                                        <div class="box-image" style="width:40%;">
+                                            <div class="image-cover" style="padding-top:56%;">
+                                                <img width="300" height="300" src="@item.Image" data-src="@item.Image" class="attachment-medium size-medium wp-post-image lazy-load-active" alt="" srcset="@item.Image 300w, @item.Image 150w, @item.Image 100w, @item.Image 308w" data-srcset="@item.Image 300w, @item.Image 150w, @item.Image 100w, @item.Image 308w" sizes="(max-width: 300px) 100vw, 300px">
+                                            </div>
+                                        </div>
+                                        <div class="box-text text-center">
+                                            <div class="box-text-inner blog-post-inner">
+                                                <h5 class="post-title is-large ">@item.Name</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="post-sidebar large-3 col">
+                <div id="secondary" class="widget-area " role="complementary">
+                    <aside id="search-2" class="widget widget_search">
+                        <form method="get" class="searchform" action="" role="search">
+                            <div class="flex-row relative">
+                                <div class="flex-col flex-grow">
+                                    <input type="search" class="search-field mb-0" name="s" value="" id="s" placeholder="Nhập xe bạn cần tìm..." />
+                                </div>
+                                <div class="flex-col">
+                                    <button onclick="Seach()" type="submit" class="ux-search-submit submit-button secondary button icon mb-0" aria-label="Submit">
+
+                                        <img src="~/Images/icons8-search-24.png" />
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="live-search-results text-left z-top"></div>
+                        </form>
+                    </aside><aside id="custom_html-4" class="widget_text widget widget_custom_html">
+                        <div class="textwidget custom-html-widget">
+                            <div class="hotline-ho-tro">
+
+                                <span class="info-hotline">Gọi ngay để được tư vấn</span>
+
+                                <span class="info2-hotline">Hotline tư vấn</span>
+
+                                <strong>
+                                    0932.678.503
+                                </strong>
+                            </div>
+                        </div>
+                    </aside>
+                    <aside id="block_widget-4" class="widget block_widget">
+                        <section class="section section4" id="section_1316180769">
+                            <div class="bg section-bg fill bg-fill  bg-loaded">
+                            </div>
+                            <div class="section-content relative">
+                                <div class="row row-collapse row-divided" id="row-99635158">
+                                    <div id="col-1077080081" class="col small-6 large-12">
+                                        <div class="col-inner text-left">
+                                            <div class="icon-box featured-box icon-box-left text-left">
+                                                <div class="icon-box-img" style="width: 40px">
+                                                    <div class="icon">
+                                                        <div class="icon-inner">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="icon-box-text last-reset">
+                                                    <p><strong>Miễn phí vận chuyển</strong></p>
+                                                    <p><span style="font-size: 90%">khu vực nội thành</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="icon-box featured-box icon-box-left text-left">
+                                                <div class="icon-box-img" style="width: 40px">
+                                                    <div class="icon">
+                                                        <div class="icon-inner">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="icon-box-text last-reset">
+                                                    <p><strong>Bảo hành 18 tháng</strong></p>
+                                                </div>
+                                            </div>
+                                            <div class="icon-box featured-box icon-box-left text-left">
+                                                <div class="icon-box-img" style="width: 40px">
+                                                    <div class="icon">
+                                                        <div class="icon-inner">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="icon-box-text last-reset">
+                                                    <p><strong>30 ngày hoàn tiền</strong></p>
+                                                    <p><span style="font-size: 90%">nếu lỗi do nhà sản xuất</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  <style>
+                                        #row-99635158 > .col > .col-inner {
+                                            padding: 0px 0px 0 0px;
+                                        }
+                                    </style>
+                                </div>
+                            </div>
+                            <style>
+                                #section_1316180769 {
+                                    padding-top: 20px;
+                                    padding-bottom: 20px;
+                                }
+                            </style>
+                        </section>
+                    </aside>
+                    <aside id="flatsome_recent_posts-3" class="widget flatsome_recent_posts">
+                        <span class="widget-title "><span>Bài viết &#8211; tin tức</span></span><div class="is-divider small"></div>		<ul id="blog10">
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</main>
+@section scripts{
+    <script>
+        Blog10()
+        function Blog10() {
+            $.ajax({
+                url: '/blogs/Blog10',
+                type: 'get',
+                success: function (data) {
+                    $('#blog10').empty();
+                    if (data.code == 200) {
+                        $.each(data.a, function (k, v) {
+                            let a = '<li class="recent-blog-posts-li">'
+                            a += '<div class="flex-row recent-blog-posts align-top pt-half pb-half" >'
+                            a += '<div class="flex-col mr-half">'
+                            a += '<div class="badge post-date  badge-circle-inside">'
+                            a += '<div class="badge-inner bg-fill" style="background-image: url(\'../../' + v.image + '\'); border:0;">'
+                            a += '</div>'
+                            a += '</div>'
+                            a += '</div>'
+                            a += '<div class="flex-col flex-grow">'
+                            a += '<a href="/tin-tuc/' + v.meta + '/' + v.id + '" title="' + v.name + '">' + v.name + '</a>'
+                            a += '<span class="post_comments op-7 block is-xsmall"><a href="/tin-tuc/' + v.meta + '/' + v.id + '"></a></span>'
+                            a += ' </div>'
+                            a += '</div >'
+                            a += '</li>'
+                            $('#blog10').append(a)
+                        })
+                    }
+                }
+            })
+        }
+    </script>
+}

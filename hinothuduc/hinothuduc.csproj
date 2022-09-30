@@ -130,11 +130,19 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Hino\Controllers\BannerController.cs" />
     <Compile Include="Areas\Hino\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Hino\Controllers\BlogController.cs" />
     <Compile Include="Areas\Hino\Controllers\CateController.cs" />
     <Compile Include="Areas\Hino\Controllers\DefaultController.cs" />
     <Compile Include="Areas\Hino\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Hino\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Hino\Controllers\ServiceController.cs" />
     <Compile Include="Areas\Hino\HinoAreaRegistration.cs" />
+    <Compile Include="Controllers\BannersController.cs" />
+    <Compile Include="Controllers\BlogsController.cs" />
+    <Compile Include="Controllers\CateProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,8 +185,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Scripts\AddImage.js" />
     <Content Include="Areas\Scripts\Banner.js" />
+    <Content Include="Areas\Scripts\Blog.js" />
     <Content Include="Areas\Scripts\Cate.js" />
+    <Content Include="Areas\Scripts\Product.js" />
+    <Content Include="Areas\Scripts\Service.js" />
     <Content Include="assets\css\pages\error\error-3.css" />
     <Content Include="assets\css\pages\error\error-4.css" />
     <Content Include="assets\css\pages\error\error-5.css" />
@@ -2104,14 +2116,25 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\15-10-201947-w500-1455-1571370751.png" />
+    <Content Include="Images\ec85368f57a6b1f8e8b7-231x300.jpg" />
+    <Content Include="Images\Hino-5245-1571370752.jpg" />
     <Content Include="Images\icons8-clock-18.png" />
     <Content Include="Images\icons8-close-30.png" />
+    <Content Include="Images\icons8-filter-16.png" />
     <Content Include="Images\icons8-gmail-logo-18.png" />
+    <Content Include="Images\icons8-image-16.png" />
+    <Content Include="Images\icons8-left-20.png" />
     <Content Include="Images\icons8-location-18.png" />
     <Content Include="Images\icons8-menu-25.png" />
+    <Content Include="Images\icons8-next-page-13.png" />
+    <Content Include="Images\icons8-open-file-folder-18.png" />
     <Content Include="Images\icons8-phone-18.png" />
+    <Content Include="Images\icons8-right-20.png" />
     <Content Include="Images\icons8-search-24.png" />
+    <Content Include="Images\icons8-sedan-19.png" />
     <Content Include="Images\icons8-shopping-cart-15.png" />
+    <Content Include="Images\images-42-1-300x154.jpg" />
     <Content Include="Images\logohino-1024x1024 %281%29.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -2177,6 +2200,13 @@
     <Content Include="Areas\Hino\Views\Banner\Edits.cshtml" />
     <Content Include="Areas\Hino\Views\Cate\Index.cshtml" />
     <Content Include="Areas\Hino\Views\Cate\Adds.cshtml" />
+    <Content Include="Areas\Hino\Views\Cate\Edits.cshtml" />
+    <Content Include="Areas\Hino\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Hino\Views\Product\Adds.cshtml" />
+    <Content Include="Areas\Hino\Views\Product\Edits.cshtml" />
+    <Content Include="Areas\Hino\Views\Service\Index.cshtml" />
+    <Content Include="Areas\Hino\Views\Service\Adds.cshtml" />
+    <Content Include="Areas\Hino\Views\Service\Edits.cshtml" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -2184,6 +2214,10 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Hino\Views\Blog\Index.cshtml" />
+    <Content Include="Areas\Hino\Views\Blog\Adds.cshtml" />
+    <Content Include="Areas\Hino\Views\Blog\Edits.cshtml" />
+    <Content Include="Areas\Hino\Views\Product\Image.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2207,6 +2241,7 @@
     <Content Include="Scripts\js\woocommerce.min.js" />
     <Content Include="Scripts\js\wp-embed.min.js" />
     <Content Include="Scripts\js\wp-emoji-release.min.js" />
+    <Content Include="Scripts\Layout.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Scripts.js" />
     <Content Include="Web.config" />
@@ -2224,11 +2259,22 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\js\flatsome.js" />
+    <Content Include="Views\CateProducts\Index.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Services\TraGop.cshtml" />
+    <Content Include="Views\Services\Detail.cshtml" />
+    <Content Include="Views\Blogs\Index.cshtml" />
+    <Content Include="Views\Blogs\Detail.cshtml" />
+    <Content Include="Views\Blogs\Contact.cshtml" />
+    <Content Include="Views\Products\Seach.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Hino\Data\" />
     <Folder Include="Areas\Hino\Views\Base\" />
+    <Folder Include="Views\Banners\" />
+    <Folder Include="Views\Blog\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

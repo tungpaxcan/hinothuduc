@@ -1,0 +1,179 @@
+﻿@model hinothuduc.Models.Service
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main" class="">
+    <div id="content" class="blog-wrapper blog-single page-wrapper">
+        <div class="row row-large ">
+           <div class="large-9 col">
+                <article id="post-4053" class="post-4053 post type-post status-publish format-standard has-post-thumbnail hentry category-dich-vu">
+                    <div class="article-inner ">
+                        <header class="entry-header">
+                            <div class="entry-header-text entry-header-text-top text-center">
+                                <h6 class="entry-category is-xsmall">
+                                    <a href="/dich-vu/" rel="category tag">Dịch vụ</a>
+                                </h6>
+                                <h1 class="entry-title">@Model.Name</h1>
+                                <div class="entry-divider is-divider small"></div>
+                                <div class="entry-meta uppercase is-xsmall">
+                                    <span class="posted-on">Posted on <a href="#" rel="bookmark"><time class="entry-date published" datetime="@Model.ModifyDate">@Model.ModifyDate.Value.Date/@Model.ModifyDate.Value.Month/@Model.ModifyDate.Value.Year</time></a></span><span class="byline"> by <span class="meta-author vcard"><a class="url fn n" href="#">@Model.ModifyBy</a></span></span>
+                                </div>
+                            </div>
+                            <div class="entry-image relative">
+                                <a href="#">
+                                    <img width="308" height="309" src="@Model.Image" data-src="@Model.Image" class="lazy-load attachment-large size-large wp-post-image" alt="" srcset="" data-srcset="@Model.Image 308w, @Model.Image 150w, @Model.Image 300w,@Model.Image 100w" sizes="(max-width: 308px) 100vw, 308px" />
+                                </a>
+                            </div>
+                        </header>
+                        <div class="entry-content single-page">
+                            <div class="service-mid">
+                                <div class="noidung_content mb">
+                                    <div align="justify">
+                                       @(new HtmlString(Model.Content))
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="post-sidebar large-3 col">
+                <div id="secondary" class="widget-area " role="complementary">
+                    <aside id="search-2" class="widget widget_search">
+                        <form method="get" class="searchform" action="" role="search">
+                            <div class="flex-row relative">
+                                <div class="flex-col flex-grow">
+                                    <input type="search" class="search-field mb-0" name="s" value="" id="s" placeholder="Nhập xe bạn cần tìm..." />
+                                </div>
+                                <div class="flex-col">
+                                    <button type="submit" class="ux-search-submit submit-button secondary button icon mb-0" aria-label="Submit">
+
+                                        <img src="~/Images/icons8-search-24.png" />
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="live-search-results text-left z-top"></div>
+                        </form>
+                    </aside><aside id="custom_html-4" class="widget_text widget widget_custom_html">
+                        <div class="textwidget custom-html-widget">
+                            <div class="hotline-ho-tro">
+
+                                <span class="info-hotline">Gọi ngay để được tư vấn</span>
+
+                                <span class="info2-hotline">Hotline tư vấn</span>
+
+                                <strong>
+                                    0932.678.503
+                                </strong>
+
+                            </div>
+                        </div>
+                    </aside>
+                    <aside id="block_widget-4" class="widget block_widget">
+                        <section class="section section4" id="section_1645639996">
+                            <div class="bg section-bg fill bg-fill  bg-loaded">
+                            </div>
+                            <div class="section-content relative">
+                                <div class="row row-collapse row-divided" id="row-564776031">
+                                    <div id="col-86540337" class="col small-6 large-12">
+                                        <div class="col-inner text-left">
+                                            <div class="icon-box featured-box icon-box-left text-left">
+                                                <div class="icon-box-img" style="width: 40px">
+                                                    <div class="icon">
+                                                        <div class="icon-inner">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="icon-box-text last-reset">
+                                                    <p><strong>Miễn phí vận chuyển</strong></p>
+                                                    <p><span style="font-size: 90%">khu vực nội thành</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="icon-box featured-box icon-box-left text-left">
+                                                <div class="icon-box-img" style="width: 40px">
+                                                    <div class="icon">
+                                                        <div class="icon-inner">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="icon-box-text last-reset">
+                                                    <p><strong>Bảo hành 18 tháng</strong></p>
+                                                </div>
+                                            </div>
+                                            <div class="icon-box featured-box icon-box-left text-left">
+                                                <div class="icon-box-img" style="width: 40px">
+                                                    <div class="icon">
+                                                        <div class="icon-inner">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="icon-box-text last-reset">
+                                                    <p><strong>30 ngày hoàn tiền</strong></p>
+                                                    <p><span style="font-size: 90%">nếu lỗi do nhà sản xuất</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <style>
+                                        #row-564776031 > .col > .col-inner {
+                                            padding: 0px 0px 0 0px;
+                                        }
+                                    </style>
+                                </div>
+                            </div>
+                           <style>
+                                #section_1645639996 {
+                                    padding-top: 20px;
+                                    padding-bottom: 20px;
+                                }
+                            </style>
+                        </section>
+                    </aside>
+                    <aside  id="flatsome_recent_posts-3" class="widget flatsome_recent_posts">
+                        <span class="widget-title "><span>Bài viết &#8211; tin tức</span></span><div class="is-divider small"></div>	
+                        <ul id="blog10">
+
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+@section scripts{
+    <script>
+        $('.noidung_content *').css('width','100%')
+        Blog10()
+        function Blog10() {
+            $.ajax({
+                url: '/blogs/Blog10',
+                type: 'get',
+                success: function (data) {
+                    $('#blog10').empty();
+                    if (data.code == 200) {
+                        $.each(data.a, function (k, v) {
+                            let a = '<li class="recent-blog-posts-li">'
+                               a+='<div class="flex-row recent-blog-posts align-top pt-half pb-half" >'
+                            a +='<div class="flex-col mr-half">'
+                            a +='<div class="badge post-date  badge-circle-inside">'
+                            a += '<div class="badge-inner bg-fill" style="background-image: url(\'../../'+v.image+'\'); border:0;">'
+                            a +='</div>'
+                            a +='</div>'
+                            a +='</div>'
+                            a +='<div class="flex-col flex-grow">'
+                            a +='<a href="/tin-tuc/'+v.meta+'/'+v.id+'" title="'+v.name+'">'+v.name+'</a>'
+                            a += '<span class="post_comments op-7 block is-xsmall"><a href="/tin-tuc/' + v.meta + '/' + v.id +'"></a></span>'
+                            a +=' </div>'
+                            a +='</div >'
+                            a +='</li>'
+                                $('#blog10').append(a)
+                        })
+                    }
+                }
+            })
+        }
+    </script>
+    }
+

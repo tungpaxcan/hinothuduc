@@ -83,15 +83,29 @@
                                 <!--begin::Header Nav-->
                                 <ul class="menu-nav">
                                     <li class="menu-item menu-item-submenu menu-item-rel menu-item-active" data-menu-toggle="click" aria-haspopup="true">
-                                        <a href="Hino/Banner/Index" class="menu-link ">
+                                        <a href="/Hino/Banner/Index" class="menu-link ">
                                             <span class="menu-text">Banner</span>
                                             <i class="menu-arrow"></i>
                                         </a>
 
                                     </li>
                                     <li class="menu-item menu-item-submenu menu-item-rel menu-item-active" data-menu-toggle="click" aria-haspopup="true">
-                                        <a href="Cate/Index" class="menu-link ">
+                                        <a href="/Hino/Cate/Index" class="menu-link ">
                                             <span class="menu-text">Loại Sản Phẩm</span>
+                                            <i class="menu-arrow"></i>
+                                        </a>
+
+                                    </li>
+                                    <li class="menu-item menu-item-submenu menu-item-rel menu-item-active" data-menu-toggle="click" aria-haspopup="true">
+                                        <a href="/Hino/Service/Index" class="menu-link ">
+                                            <span class="menu-text">Dịch Vụ</span>
+                                            <i class="menu-arrow"></i>
+                                        </a>
+
+                                    </li>
+                                    <li class="menu-item menu-item-submenu menu-item-rel menu-item-active" data-menu-toggle="click" aria-haspopup="true">
+                                        <a href="/Hino/Blog/Index" class="menu-link ">
+                                            <span class="menu-text">Tin Tức</span>
                                             <i class="menu-arrow"></i>
                                         </a>
 
@@ -232,9 +246,6 @@
     <script src="~/assets/plugins/global/plugins.bundle.js"></script>
     <script src="~/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
     <script src="~/assets/js/scripts.bundle.js"></script>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     <script>
         function GetChuoi(title) {
             return title.toLowerCase().trim()
@@ -250,6 +261,32 @@
                 .replace(/&|!/g, "-")
                 .replace(/\^\-+|\-+$/g, "-");
         }
+        $('.summernote').summernote({
+            width: 1000,
+            height: 300,
+            minHeight: null,
+            maxHeight: null,
+            focus: true,
+            placeholder: 'Nhập Thông Tin',
+            fontSizes: ['8', '9', '10', '11', '12', '14', '18'],
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['video', ['video']],
+                ['picture', ['picture']],
+                ['fontname', ['fontname']],
+                ['table', ['table']],
+                ['link', ['link']],
+                ['fullscreen', ['fullscreen']],
+                ['style', ['style']],
+
+            ]
+        });
     </script>
     @RenderSection("scripts", required: false)
 </body>

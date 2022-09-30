@@ -14,6 +14,7 @@ $('#page').on('click', 'li', function (e) {
 
 
 function Banner(pagenum, page, seach) {
+    var Stt = 1;
     $.ajax({
         url: '/banner/List',
         type: 'get',
@@ -24,7 +25,7 @@ function Banner(pagenum, page, seach) {
             if (data.code == 200) {
                 $.each(data.c, function (k, v) {
                     let table = '<tr id="' + v.id + '" role="row" class="odd">';
-                    table += '<td>' + v.id + '</td>'
+                    table += '<td>' + (Stt++) + '</td>'
                     table += '<td>' + v.name + '</td>'
                     table += '<td ><img style="width:200px" src="' + v.image + '" /></td>'
                     table += '<td class="action" nowrap="nowrap">';

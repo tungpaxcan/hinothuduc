@@ -26,7 +26,7 @@ namespace hinothuduc.Models
         public string Title { get; set; }
         public string Meta { get; set; }
         public string Image { get; set; }
-        public string C_content_TechParameter { get; set; }
+        public string Content { get; set; }
         public string Description { get; set; }
         public Nullable<System.DateTime> CreateDate { get; set; }
         public string CreateBy { get; set; }

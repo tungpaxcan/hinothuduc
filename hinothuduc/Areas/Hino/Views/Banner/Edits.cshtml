@@ -30,8 +30,8 @@
         </div>
         <div class="form-inline">
             <label>Hình Ảnh<span style="color:red">(*)</span></label>
-            <input type="text" hidden name="picture" id="picturefile" class="form-control" />
-            <input type="file" value="@Model.Image" id="fileUpload" name="fileUpload" accept="image/*" style="display:none" />
+            <input type="text" value="@Model.Image"hidden name="picture" id="picturefile" class="form-control" />
+            <input type="file"  id="fileUpload" name="fileUpload" accept="image/*" style="display:none" />
             <input type="button" id="btnUpload" value="..." class="btn-bg-success" />
             <img style="width:100px" id="picture" src="@Model.Image"/>
         </div>

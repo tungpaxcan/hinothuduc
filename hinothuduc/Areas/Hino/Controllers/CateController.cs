@@ -26,12 +26,12 @@ namespace hinothuduc.Areas.Hino.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Banner banner = db.Banners.Find(id);
-            if (banner == null)
+            CateProduct cateProduct = db.CateProducts.Find(id);
+            if (cateProduct == null)
             {
                 return HttpNotFound();
             }
-            return View(banner);
+            return View(cateProduct);
         }
         [HttpGet]
         public JsonResult List(int pagenum, int page, string seach)
@@ -56,21 +56,22 @@ namespace hinothuduc.Areas.Hino.Controllers
             }
         }
         [HttpPost]
-        public JsonResult Add(string name, string title,string meta)
+        public JsonResult Add(string name, string title, string meta)
         {
             try
             {
                 var session = (UserAdmin)Session["user"];
                 var nameAdmin = session.Name;
-                var d = new Banner();
+                var d = new CateProduct();
                 d.Name = name;
-                
+                d.Title = title;
+                d.Meta = meta;
                 d.CreateDate = DateTime.Now;
                 d.ModifyDate = DateTime.Now;
                 d.CreateBy = nameAdmin;
                 d.ModifyBy = nameAdmin;
                 d.Status = true;
-                db.Banners.Add(d);
+                db.CateProducts.Add(d);
                 db.SaveChanges();
                 return Json(new { code = 200, msg = "Hiển Thị Dữ liệu thành công" }, JsonRequestBehavior.AllowGet);
 
@@ -81,16 +82,17 @@ namespace hinothuduc.Areas.Hino.Controllers
             }
         }
         [HttpPost]
-        public JsonResult Edit(int id, string name, string image)
+        public JsonResult Edit(int id, string name, string title,string meta)
         {
             try
             {
                 db.Configuration.ProxyCreationEnabled = false;
                 var session = (UserAdmin)Session["user"];
                 var nameAdmin = session.Name;
-                var d = db.Banners.Find(id);
+                var d = db.CateProducts.Find(id);
                 d.Name = name;
-                d.Image = image;
+                d.Title = title;
+                d.Meta = meta;
                 d.ModifyDate = DateTime.Now;
                 d.ModifyBy = nameAdmin;
                 db.SaveChanges();
@@ -107,8 +109,8 @@ namespace hinothuduc.Areas.Hino.Controllers
         {
             try
             {
-                var d = db.Banners.Find(id);
-                db.Banners.Remove(d);
+                var d = db.CateProducts.Find(id);
+                db.CateProducts.Remove(d);
                 db.SaveChanges();
                 return Json(new { code = 200, msg = "Hiển Thị Dữ liệu thành công" }, JsonRequestBehavior.AllowGet);
 
@@ -118,4 +120,5 @@ namespace hinothuduc.Areas.Hino.Controllers
                 return Json(new { code = 500, msg = "Xóa Thất Bại" }, JsonRequestBehavior.AllowGet);
             }
         }
+    }
 }

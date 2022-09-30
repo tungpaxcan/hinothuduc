@@ -19,7 +19,9 @@
     <meta name="twitter:title" content="Xe Chuyên Dụng Hino - Hino Thủ Đức">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//s.w.org">
-
+    <link rel="shortcut icon" href="~/Images/logohino-1024x1024 (1).png" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <style type="text/css">
         img.wp-smiley,
         img.emoji {
@@ -141,7 +143,7 @@
                         <!-- Logo -->
                         <div id="logo" class="flex-col logo">
                             <!-- Header logo -->
-                            <a href="" title="Hino Trường Vinh" rel="home">
+                            <a href="/" title="Hino Trường Vinh" rel="home">
                                 <img src="~/Images/logohino-1024x1024 (1).png" class="header_logo header-logo" alt="Hino Thủ Đức"><img src="~/Images/logohino-1024x1024 (1).png" class="header-logo-dark" alt="Hino Thủ Đức">
                             </a>
                         </div>
@@ -181,18 +183,13 @@
                                                     <div class="searchform-wrapper ux-search-box relative is-large">
                                                         <form role="search" method="get" class="searchform" action="">
                                                             <div class="flex-row relative">
-                                                                <div class="flex-col search-form-categories">
-                                                                    <select class="search_categories resize-select mb-0" name="product_cat" style="width: 66px;">
-                                                                    </select>
-                                                                </div>
                                                                 <div class="flex-col flex-grow">
                                                                     <label class="screen-reader-text" for="woocommerce-product-search-field-0">Tìm kiếm:</label>
-                                                                    <input type="search" id="woocommerce-product-search-field-0" class="search-field mb-0" placeholder="Nhập xe bạn cần tìm..." value="" name="s">
+                                                                    <input type="search" id="woocommerce-product-search-field-0" class="search-field mb-0" placeholder="Nhập xe bạn cần tìm..." value="" name="ss">
                                                                     <input type="hidden" name="post_type" value="product">
                                                                 </div>
                                                                 <div class="flex-col">
-                                                                    <button type="submit" value="Tìm kiếm" class="ux-search-submit submit-button secondary button icon mb-0" aria-label="Submit">
-
+                                                                    <button onclick="Seachs()" type="submit" value="Tìm kiếm" class="ux-search-submit submit-button secondary button icon mb-0" aria-label="Submit">
                                                                         <img src="~/Images/icons8-search-24.png" />
                                                                     </button>
                                                                 </div>
@@ -260,8 +257,8 @@
                     <div class="flex-row container">
                         <div class="flex-col hide-for-medium flex-left">
                             <ul class="nav header-nav header-bottom-nav nav-left  nav-size-large nav-spacing-medium">
-                                <li id="menu-item-85" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-85 menu-item-design-default">
-                                <a href="" class="nav-top-link">Trang chủ</a>
+                                <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-85 menu-item-design-default">
+
                                 </li>
                             </ul>
                         </div>
@@ -281,17 +278,13 @@
                                         <div class="searchform-wrapper ux-search-box relative is-normal">
                                             <form role="search" method="get" class="searchform" action="">
                                                 <div class="flex-row relative">
-                                                    <div class="flex-col search-form-categories">
-                                                        <select class="search_categories resize-select mb-0" name="product_cat" style="width: 52px;">
-                                                        </select>
-                                                    </div>
                                                     <div class="flex-col flex-grow">
                                                         <label class="screen-reader-text" for="woocommerce-product-search-field-1">Tìm kiếm:</label>
-                                                        <input type="search" id="woocommerce-product-search-field-1" class="search-field mb-0" placeholder="Nhập xe bạn cần tìm..." value="" name="s">
+                                                        <input type="search" id="woocommerce-product-search-field-1" class="search-field mb-0" placeholder="Nhập xe bạn cần tìm..." value="" name="ss">
                                                         <input type="hidden" name="post_type" value="product" wfd-invisible="true">
                                                     </div>
                                                     <div class="flex-col">
-                                                        <button type="submit" value="Tìm kiếm" class="ux-search-submit submit-button secondary button icon mb-0" aria-label="Submit">
+                                                        <button onclick="Seachs()" type="submit" value="Tìm kiếm" class="ux-search-submit submit-button secondary button icon mb-0" aria-label="Submit">
 
                                                             <img src="~/Images/icons8-search-24.png" />
                                                         </button>
@@ -302,15 +295,18 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-85"><a href="">Trang chủ</a></li>
+
+
+                            </ul>
+                            <ul class="nav nav-sidebar nav-vertical nav-uppercase" id="menu-mobile">
                             </ul>
                         </div>
                     </div>
                 </div><div class="mfp-preloader">Loading...</div>
             </div>
-            <button  type="button" class="mfp-close">
+            <button type="button" class="mfp-close">
                 <img src="~/Images/icons8-close-30.png" />
-                </button>
+            </button>
         </div>
         <div class="mfp-wrap1 mfp-auto-cursor off-canvas undefined off-canvas-right mfp-ready" tabindex="-1" style="top: 0px; position: absolute; height: 667px;">
             <div class="mfp-container mfp-s-ready mfp-inline-holder">
@@ -332,16 +328,16 @@
                     </div>
                 </div><div class="mfp-preloader">Loading...</div>
             </div>
-            <button  type="button" class="mfp-close mfp-close1">
+            <button type="button" class="mfp-close mfp-close1">
                 <img src="~/Images/icons8-close-30.png" />
-                </button>
+            </button>
 
         </div>
         @RenderBody()
         <footer id="footer" class="footer-wrapper">
             <section class="section footer-section" id="section_199022688">
                 <div class="bg section-bg fill bg-fill  bg-loaded">
-               </div>
+                </div>
                 <div class="section-content relative">
                     <div class="row" id="row-170648654">
                         <div id="col-59242005" class="col medium-6 small-12 large-6">
@@ -356,50 +352,26 @@
                                         }
                                     </style>
                                 </div>
-                                <h3 class="name"><span style="font-size: 85%; color: #ed1c24;">CHI NHÁNH BÀ RỊA (3S)</span></h3>
+                                <h3 class="name"><span style="font-size: 85%; color: #ed1c24;">CHI NHÁNH THỦ ĐỨC</span></h3>
                                 <ul class="listInfo">
-                                    <li><span style="color: #ffffff;"><strong>Địa chỉ :&nbsp;</strong>231 Quốc lộ 51, P. Kim Dinh, Tp. Bà Rịa, tỉnh Bà Rịa- Vũng tàu</span></li>
-                                    <li><span style="color: #ffffff;"><strong>Điện thoại :&nbsp;</strong><strong><a style="color: #ffffff;" href="tel:0933685439">0933 685 439</a></strong></span></li>
+                                    <li><span style="color: #ffffff;">
+    <strong>Địa chỉ :&nbsp;</strong>Công Ty TNHH Ô tô Hưng Nam
+    80 Quốc Lộ 1A, Phường Hiệp Bình Phước , TP Thủ Đức
+</span></li>
+                                    <li><span style="color: #ffffff;"><strong>Điện thoại :&nbsp;</strong><strong><a style="color: #ffffff;" href="tel:0932678503"> 0932.678.503</a></strong></span></li>
                                 </ul>
-                                <h3 class="name"><span style="color: #ed1c24; font-size: 85%;">CÔNG TY TNHH TRƯỜNG VINH HI-NÔ</span></h3>
-                                <ul class="listInfo">
-                                    <li><span style="color: #ffffff;"><strong>Địa chỉ :&nbsp;</strong>Số 513 Xa lộ Hà Nội, Khu phố 1, P. Long Bình, Tp. Biên Hòa, tỉnh Đồng Nai, Việt Nam, Hồ Chí Minh</span></li>
-                                </ul>
-                                <ul class="listInfo">
-                                    <li><span style="color: #ffffff;">Vũng Tàu, Bà Rịa - Vũng Tàu</span></li>
-                                </ul>
-                                <h3 class="name"><span style="font-size: 85%; color: #ed1c24;">CHI NHÁNH KHÁNH HÒA (3S)</span></h3>
-                                <ul class="listInfo">
-                                    <li><span style="color: #ffffff;"><strong>Địa chỉ :&nbsp;</strong>Võ Tánh, Xã Vĩnh Lương, Thành phố Nha Trang, Tỉnh Khánh Hòa., Khánh Hòa</span></li>
-                                </ul>
-
                             </div>
                         </div>
-
-
-
                         <div id="col-245077503" class="col medium-6 small-12 large-6">
                             <div class="col-inner">
-
-
-
-                                <h3 class="name"><span style="font-size: 85%; color: #ed1c24;">CHI NHÁNH TIỀN GIANG</span></h3>
-                                <ul class="listInfo">
-                                    <li><span style="color: #ffffff;"><strong>Địa chỉ :&nbsp;</strong>Số 81 Quốc lộ 1A, xã Trung An, thành phố Mỹ Tho, Tiền Giang</span></li>
-                                </ul>
                                 <h3 class="name"><span style="font-size: 85%; color: #ed1c24;">VĂN PHÒNG ĐẠI DIỆN TRƯỜNG VINH HINO</span></h3>
                                 <ul class="listInfo">
                                     <li><span style="color: #ffffff;"><strong>Địa chỉ :&nbsp;</strong>Số 666/70 Đường 3/2, phường 14, quận 10, Hồ Chí Minh</span></li>
                                 </ul>
                                 <p>&nbsp;</p>
                                 <div class="row" id="row-1055093137">
-
-
                                     <div id="col-1620832698" class="col medium-6 small-12 large-6">
                                         <div class="col-inner dark">
-
-
-
                                             <h3><span style="font-size: 100%; color: #d83131;">Đăng ký nhận tin</span></h3>
                                             <p><span style="font-size: 90%; color: #c0c0c0;">Vui lòng nhập địa chỉ email để nhận bản tin khuyến mại hàng tuần của chúng tôi:</span></p>
                                             <div role="form" class="wpcf7" id="wpcf7-f573-o1" lang="vi" dir="ltr">
@@ -419,33 +391,15 @@
                                                     <div class="wpcf7-response-output wpcf7-display-none"></div>
                                                 </form>
                                             </div>
-                                            <div class="social-icons follow-icons"><a href="https://www.facebook.com/Duongphi235" target="_blank" data-label="Facebook" rel="noopener noreferrer nofollow" class="icon primary button circle facebook tooltip tooltipstered"><i class="icon-facebook"></i></a><a href="mailto:tongvanphi.tvp@gmail.com" data-label="E-mail" rel="nofollow" class="icon primary button circle  email tooltip tooltipstered"><i class="icon-envelop"></i></a><a href="tel:0933685439" target="_blank" data-label="Phone" rel="noopener noreferrer nofollow" class="icon primary button circle  phone tooltip tooltipstered"><i class="icon-phone"></i></a></div>
                                         </div>
                                     </div>
                                     <div id="col-1558093950" class="col medium-6 small-12 large-6">
                                         <div class="col-inner dark">
                                             <h3><span style="color: #d83131; font-size: 100%;">Sản phẩm chính</span></h3>
-                                            <ul>
-                                                <li><span style="color: #ffffff;"><a style="color: #ffffff;" href="http://thegioixehino.com/xe-tai-hino/">XE TẢI HINO</a></span></li>
-                                                <li><span style="color: #ffffff;"><a style="color: #ffffff;" href="http://thegioixehino.com/xe-chuyen-dung-hino/">XE CHUYÊN DỤNG HINO</a></span></li>
-                                                <li><span style="color: #ffffff;"><a style="color: #ffffff;" href="http://thegioixehino.com/xe-cau-hino/">XE CẨU HINO</a></span></li>
-                                                <li><span style="color: #ffffff;"><a style="color: #ffffff;" href="http://thegioixehino.com/xe-ben-hino/">XE BEN HINO</a></span></li>
-                                                <li><span style="color: #ffffff;"><a style="color: #ffffff;" href="http://thegioixehino.com/xe-dau-keo-hino/">XE ĐẦU KÉO HINO</a></span></li>
+                                            <ul id="menuft">
+                                             
                                             </ul>
-                                            <!-- Histats.com  (div with counter) --><div id="histats_counter"><div id="histats_counter_4918" style="display: block;"><a href="http://www.histats.com/viewstats/?sid=4317175&amp;ccid=5" target="_blank"><canvas id="histats_counter_4918_canvas" width="173" height="26"></canvas></a></div></div>
-                                            <!-- Histats.com  START  (aync)-->
-                                            <script type="text/javascript">
-                                                var _Hasync = _Hasync || [];
-                                                _Hasync.push(['Histats.start', '1,4317175,4,5,172,25,00010000']);
-                                                _Hasync.push(['Histats.fasi', '1']);
-                                                _Hasync.push(['Histats.track_hits', '']);
-                                                (function () {
-                                                    var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-                                                    hs.src = ('//s10.histats.com/js15_as.js');
-                                                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-                                                })();</script>
-                                            <noscript><a href="/" target="_blank" rel="noopener noreferrer"><img src="//sstatic1.histats.com/0.gif?4317175&101" alt="" border="0"></a></noscript>
-                                            <!-- Histats.com  END  -->
+
                                         </div>
                                     </div>
                                 </div>
@@ -462,29 +416,19 @@
                 </style>
             </section>
 
-            <div class="absolute-footer dark medium-text-center small-text-center">
-                <div class="container clearfix">
-
-                    <div class="footer-secondary pull-right">
-                        <div class="footer-text inline-block small-block">
-                            Hotline: 0933 685 439
-                        </div>
-                    </div>
-
-                    <div class="footer-primary pull-left">
-                        <div class="copyright-footer">
-                            Copyright 2022 © Xetaihinobaria.com | Xetaihinobaria.com
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a href="#top" class="back-to-top button icon invert plain fixed bottom z-1 is-outline circle active" id="top-link"><i class="icon-angle-up"></i></a>
 
         </footer>
     </div>
 
     <script src="~/Scripts/jquery-3.4.1.js"></script>
     <script src="~/Scripts/Scripts.js"></script>
+
+    <script type='text/javascript' src='https://thegioixehino.com/wp-content/themes/flatsome/assets/js/flatsome.js?ver=3.13.1'></script>
+
+
+    <script src="~/Scripts/Layout.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

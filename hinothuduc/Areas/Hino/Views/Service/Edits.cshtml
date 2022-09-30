@@ -1,0 +1,82 @@
+﻿@model hinothuduc.Models.Service
+@{
+    ViewBag.Title = "Sửa Dịch Vụ " +Model.Name;
+    Layout = "~/Areas/Hino/Views/Shared/_Layout.cshtml";
+}
+<input hidden value="@Model.Id" id="id" />
+<div class="card card-custom">
+    <div class="card-header">
+        <h3 class="card-title">
+            Sửa Dịch Vụ
+        </h3>
+    </div>
+    <!--begin::Form-->
+    <div class="card-body">
+        <div class="form-group mb-8">
+            <div class="alert alert-custom alert-default" role="alert">
+                <div class="alert-icon"><i class="flaticon-warning text-primary"></i></div>
+                <div class="alert-text">
+                    Vui Lòng Nhập Đúng Tất Cả Dữ Liệu Để Đảm Bảo Hệ Thống
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-password-input" class="col-2 col-form-label">Tên Dịch Vụ <span style="color:red"> (*) </span></label>
+            <div class="col-10">
+                <div class="input-group ">
+                    <input class="form-control" type="text" value="@Model.Name" placeholder="Tên Dịch Vụ " id="name" />
+                    <input hidden class="form-control" type="text" value="@Model.Title" placeholder="Tên Sản Phẩm " id="title" />
+                    <input hidden class="form-control" type="text" value="@Model.Meta" placeholder="Tên Sản Phẩm " id="meta" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-password-input" class="col-2 col-form-label">Hình Ảnh <span style="color:red"> (*) </span></label>
+            <div class="col-10">
+                <input type="text" value="@Model.Image" hidden name="picture" id="picturefile" class="form-control" />
+                <input type="file" id="fileUpload" name="fileUpload" accept="image/*" style="display:none" />
+                <input type="button" id="btnUpload" value="..." class="btn-bg-success" />
+                <img style="width:100px" src="@Model.Image" id="picture" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-password-input" class="col-2 col-form-label">Nội Dung<span style="color:red"> (*) </span></label>
+            <div class="col-10">
+                <div class="input-group ">
+                    <textarea class="form-control summernote" id="content"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-10">
+                <button type="submit" class="btn btn-success mr-2" onclick="Add()">Submit</button>
+                <a href="/Hino/Service/Index" type="reset" class="btn btn-secondary">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+
+    <script src="~/Areas/Scripts/Service.js"></script>
+    <script>
+        Detail()
+        function Detail() {
+            var id = $('#id').val().trim();
+            $.ajax({
+                type: 'get',
+                url: '/hino/service/Detail',
+                data: {id},
+                success: function (data) {
+                    if (data.code == 200) {
+                        $('#content').summernote('code',data.content)
+                    }
+                }
+            })
+        }
+    </script>
+}
+
