@@ -12,15 +12,9 @@ namespace hinothuduc.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CateProduct
+    public partial class CateCar
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CateProduct()
-        {
-            this.Products = new HashSet<Product>();
-        }
-    
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Title { get; set; }
         public string Meta { get; set; }
@@ -30,9 +24,5 @@ namespace hinothuduc.Models
         public Nullable<System.DateTime> ModifyDate { get; set; }
         public string ModifyBy { get; set; }
         public Nullable<bool> Status { get; set; }
-        public string idCateCar { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
     }
 }

@@ -4,16 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8d6c061a7b784fe1a0fcb025bc0c7f31" Name="Diagram1">
-        <EntityTypeShape EntityType="hinothuducModel.Banner" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="hinothuducModel.Blog" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="hinothuducModel.CateProduct" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="hinothuducModel.ImageProduct" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="hinothuducModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="hinothuducModel.Service" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="hinothuducModel.UserAdmin" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
-        <AssociationConnector Association="hinothuducModel.FK_Product_CateProduct" ManuallyRouted="false" />
-        <AssociationConnector Association="hinothuducModel.FK_ImageProduct_Product" ManuallyRouted="false" />
+      <Diagram DiagramId="bad3930c8b0c4bffb4a3c39521a0c003" Name="Diagram1">
+        <EntityTypeShape EntityType="hinothuduc.comModel.Banner" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hinothuduc.comModel.Blog" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hinothuduc.comModel.CateCar" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hinothuduc.comModel.CateProduct" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="hinothuduc.comModel.ImageProduct" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="hinothuduc.comModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="hinothuduc.comModel.Service" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hinothuduc.comModel.UserAdmin" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="hinothuduc.comModel.FK_Product_CateProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="hinothuduc.comModel.FK_ImageProduct_Product" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

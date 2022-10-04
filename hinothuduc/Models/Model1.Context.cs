@@ -27,6 +27,7 @@ namespace hinothuduc.Models
     
         public virtual DbSet<Banner> Banners { get; set; }
         public virtual DbSet<Blog> Blogs { get; set; }
+        public virtual DbSet<CateCar> CateCars { get; set; }
         public virtual DbSet<CateProduct> CateProducts { get; set; }
         public virtual DbSet<ImageProduct> ImageProducts { get; set; }
         public virtual DbSet<Product> Products { get; set; }

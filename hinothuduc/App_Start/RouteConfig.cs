@@ -58,6 +58,21 @@ defaults: new { controller = "Blogs", action = "Contact", id = UrlParameter.Opti
                defaults: new { controller = "CateProducts", action = "Index", id = UrlParameter.Optional }
            );
             routes.MapRoute(
+          name: "CSMX",
+          url: "chinh-sach-mua-xe/{action}/{id}",
+          defaults: new { controller = "Home", action = "CSMX", id = UrlParameter.Optional }
+      );
+            routes.MapRoute(
+            name: "CSBH",
+            url: "chinh-sach-bao-hanh/{action}/{id}",
+            defaults: new { controller = "Home", action = "CSBH", id = UrlParameter.Optional }
+        );
+            routes.MapRoute(
+           name: "CSBT",
+           url: "chinh-sach-bao-tri/{action}/{id}",
+           defaults: new { controller = "Home", action = "CSBT", id = UrlParameter.Optional }
+       );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

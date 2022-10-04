@@ -12,7 +12,18 @@ namespace hinothuduc.Controllers
         {
             return View();
         }
-
+        public ActionResult CSMX()
+        {
+            return View();
+        }
+        public ActionResult CSBH()
+        {
+            return View();
+        }
+        public ActionResult CSBT()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

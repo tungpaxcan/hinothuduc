@@ -6,16 +6,15 @@ function product_cat() {
         success: function (data) {
             $('#menu-item').empty();
             $('#menu-mobile').empty();
-            $('#menuft').empty();
             if (data.code == 200) {
                 let b = '<a href="/" class="nav-top-link">Trang chủ</a>'
                 let c ='<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-85" id="menu-mobile"><a href="/">Trang chủ</a></li>'
-
                 $.each(data.a, function (k, v) {
-                    b += '<a href="/danh-muc/' + v.meta + '/' + v.id + '" class="nav-top-link">' + v.name + '</a>'             
                     c += '<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-85" id="menu-mobile"><a href="/danh-muc/' + v.meta + '/' + v.id + '" >' + v.name + '</a><li>'
-                    let d = '<li><span style="color: #ffffff;"><a style="color: #ffffff;" href="/danh-muc/' + v.meta + '/' + v.id + '">'+v.name+'</a></span></li>'
-                    $('#menuft').append(d);
+                })
+                $.each(data.c, function (k, v) {
+                    b += '<a class="dropdown nav-top-link">' + v.name + '<div class="dd"><ul id="' + v.id + '"></ul></div> </a>'
+                    IDCATECAR(v.id)
                 })
                 b += '<a href="/dich-vu/" class="nav-top-link">Dịch Vụ</a>'
                 c += '<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-85" id="menu-mobile"><a href="/dich-vu/" class="nav-top-link">Dịch Vụ</a></li>'
@@ -34,7 +33,41 @@ function product_cat() {
     })
 }
 
+function IDCATECAR(id) {
+    $.ajax({
+        url: '/cateproducts/IDCATECAR',
+        type: 'get',
+        data: {
+            id
+        },
+        success: function (data) {
+            $('#' + id + '').empty();
+            if (data.code == 200) {
+                $.each(data.a, function (k, v) {
+                    let li = '<li onclick="Href('+v.id + ')" >' + v.name + '</li>'
+                    $('#' + id + '').append(li);
+                })
+            }
+        }
+    })
+}
 
+function Href(id) {
+    $.ajax({
+        url: '/cateproducts/Href',
+        type: 'get',
+        data: {
+            id
+        },
+        success: function (data) {
+            if (data.code == 200) {
+                $.each(data.a, function (k, v) {
+                    window.location.href = "/danh-muc/" + v.meta + "/" + v.id
+                })
+            }
+        }
+    })
+}
 function Seach() {
     var seach = $('input[name="s"]').val().trim()
     $.ajax({
@@ -65,3 +98,4 @@ function Seachs() {
         }
     })
 }
+

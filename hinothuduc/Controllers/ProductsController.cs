@@ -84,7 +84,7 @@ namespace hinothuduc.Controllers
         {
             try
             {
-                var pageSize = 40;
+                var pageSize = 10;
                 var a = (from b in db.Products.Where(x => x.IdCateProcduct == idcate)
                          orderby b.ModifyDate descending
                          select new
@@ -137,7 +137,7 @@ namespace hinothuduc.Controllers
                          {
                              id = b.Id,
                              image = b.Image,
-                         }).ToList();
+                         }).ToList().Take(4);
                 return Json(new { code = 200, a = a }, JsonRequestBehavior.AllowGet);
 
             }

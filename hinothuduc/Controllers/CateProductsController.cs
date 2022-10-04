@@ -32,11 +32,57 @@ namespace hinothuduc.Controllers
             try
             {
                 var a = (from b in db.CateProducts.Where(x => x.Id > 0)
-                         orderby b.ModifyDate descending
                          select new
                          {
                              meta= b.Meta,
                              id=b.Id,
+                             name = b.Name
+                         }).ToList();
+                var c = (from b in db.CateCars.Where(x => x.Id.Length > 0)
+                         select new
+                         {
+                             meta = b.Meta,
+                             id = b.Id,
+                             name = b.Name
+                         }).ToList();
+                return Json(new { code = 200, a = a ,c=c}, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception)
+            {
+                return Json(new { code = 500, msg = "Xóa Thất Bại" }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [HttpGet]
+        public JsonResult IDCATECAR(string id)
+        {
+            try
+            {
+                var a = (from b in db.CateProducts.Where(x => x.Id > 0 && x.idCateCar == id)
+                         select new
+                         {
+                             meta = b.Meta,
+                             id = b.Id,
+                             name = b.Name
+                         }).ToList();
+                return Json(new { code = 200, a = a }, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception)
+            {
+                return Json(new { code = 500, msg = "Xóa Thất Bại" }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [HttpGet]
+        public JsonResult Href(int id)
+        {
+            try
+            {
+                var a = (from b in db.CateProducts.Where(x => x.Id == id )
+                         select new
+                         {
+                             meta = b.Meta,
+                             id = b.Id,
                              name = b.Name
                          }).ToList();
                 return Json(new { code = 200, a = a }, JsonRequestBehavior.AllowGet);

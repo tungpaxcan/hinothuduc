@@ -8,10 +8,10 @@ using hinothuduc.Models;
 
 namespace hinothuduc.Areas.Hino.Controllers
 {
-    public class CateController : BaseController
+    public class CateHYUNDAIController : BaseController
     {
         private hinothuducEntities db = new hinothuducEntities();
-        // GET: Hino/Cate
+        // GET: Hino/CateHYUNDAI
         public ActionResult Index()
         {
             return View();
@@ -39,7 +39,7 @@ namespace hinothuduc.Areas.Hino.Controllers
             try
             {
                 var pageSize = pagenum;
-                var a = (from b in db.CateProducts.Where(x => x.Id > 0 && x.Status == true&&x.idCateCar=="HINO")
+                var a = (from b in db.CateProducts.Where(x => x.Id > 0 && x.Status == true && x.idCateCar == "HYUNDAI")
                          select new
                          {
                              id = b.Id,
@@ -71,7 +71,7 @@ namespace hinothuduc.Areas.Hino.Controllers
                 d.CreateBy = nameAdmin;
                 d.ModifyBy = nameAdmin;
                 d.Status = true;
-                d.idCateCar = "HINO";
+                d.idCateCar = "HYUNDAI";
                 db.CateProducts.Add(d);
                 db.SaveChanges();
                 return Json(new { code = 200, msg = "Hiển Thị Dữ liệu thành công" }, JsonRequestBehavior.AllowGet);
@@ -83,7 +83,7 @@ namespace hinothuduc.Areas.Hino.Controllers
             }
         }
         [HttpPost]
-        public JsonResult Edit(int id, string name, string title,string meta)
+        public JsonResult Edit(int id, string name, string title, string meta)
         {
             try
             {

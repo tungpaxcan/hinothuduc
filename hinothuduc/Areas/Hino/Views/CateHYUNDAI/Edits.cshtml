@@ -1,12 +1,13 @@
-﻿
+﻿@model hinothuduc.Models.CateProduct
 @{
-    ViewBag.Title = "Thêm Loại Sản Phẩm HINO";
+    ViewBag.Title = "Sửa Loại Sản Phẩm " + Model.Name;
     Layout = "~/Areas/Hino/Views/Shared/_Layout.cshtml";
 }
+<input hidden value="@Model.Id" id="id" />
 <div class="card card-custom">
     <div class="card-header">
         <h3 class="card-title">
-            Thêm Loại Sản Phẩm HINO
+            Sửa Loại Sản Phẩm @Model.Name
         </h3>
     </div>
     <!--begin::Form-->
@@ -23,9 +24,9 @@
             <label for="example-password-input" class="col-2 col-form-label">Tên Loại Sản Phẩm <span style="color:red"> (*) </span></label>
             <div class="col-10">
                 <div class="input-group ">
-                    <input class="form-control" type="text" placeholder="Tên Loại Sản Phẩm " id="name" />
-                    <input hidden class="form-control" type="text" placeholder="Tên banner " id="title" />
-                    <input hidden class="form-control" type="text" placeholder="Tên banner " id="meta" />
+                    <input class="form-control" value="@Model.Name" type="text" placeholder="Tên Loại Sản Phẩm " id="name" />
+                    <input hidden class="form-control" value="@Model.Title" type="text" placeholder="Tên banner " id="title" />
+                    <input hidden class="form-control" value="@Model.Meta" type="text" placeholder="Tên banner " id="meta" />
                 </div>
             </div>
         </div>
@@ -35,15 +36,18 @@
             <div class="col-2">
             </div>
             <div class="col-10">
-                <button type="submit" class="btn btn-success mr-2" onclick="Add()">Submit</button>
-                <a href="/Hino/Cate/Index" type="reset" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-success mr-2" onclick="Edit()">Submit</button>
+                <a href="/Hino/CateHYUNDAI/Index" type="reset" class="btn btn-secondary">Cancel</a>
             </div>
         </div>
     </div>
 </div>
 @section scripts{
-    <script src="~/Areas/Scripts/Cate.js"></script>
+
+    <script src="~/Areas/Scripts/CateHYUNDAI.js"></script>
 }
+
+
 
 
 

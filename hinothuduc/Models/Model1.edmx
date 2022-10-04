@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="hinothuducModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="hinothuduc.comModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Banner">
           <Key>
             <PropertyRef Name="Id" />
@@ -36,6 +36,21 @@
           <Property Name="ModifyBy" Type="nvarchar(max)" />
           <Property Name="Status" Type="bit" />
         </EntityType>
+        <EntityType Name="CateCar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" />
+          <Property Name="Meta" Type="varchar" MaxLength="250" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar(max)" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifyBy" Type="nvarchar(max)" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
         <EntityType Name="CateProduct">
           <Key>
             <PropertyRef Name="Id" />
@@ -50,6 +65,7 @@
           <Property Name="ModifyDate" Type="datetime" />
           <Property Name="ModifyBy" Type="nvarchar(max)" />
           <Property Name="Status" Type="bit" />
+          <Property Name="idCateCar" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="ImageProduct">
           <Key>
@@ -140,9 +156,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="hinothuducModelStoreContainer">
+        <EntityContainer Name="hinothuduccomModelStoreContainer">
           <EntitySet Name="Banner" EntityType="Self.Banner" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CateCar" EntityType="Self.CateCar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CateProduct" EntityType="Self.CateProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ImageProduct" EntityType="Self.ImageProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
@@ -161,7 +178,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="hinothuducModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="hinothuduc.comModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Banner">
           <Key>
             <PropertyRef Name="Id" />
@@ -193,6 +210,21 @@
           <Property Name="ModifyBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="Boolean" />
         </EntityType>
+        <EntityType Name="CateCar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Meta" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
         <EntityType Name="CateProduct">
           <Key>
             <PropertyRef Name="Id" />
@@ -207,6 +239,7 @@
           <Property Name="ModifyDate" Type="DateTime" Precision="3" />
           <Property Name="ModifyBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="Boolean" />
+          <Property Name="idCateCar" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Products" Relationship="Self.FK_Product_CateProduct" FromRole="CateProduct" ToRole="Product" />
         </EntityType>
         <EntityType Name="ImageProduct">
@@ -304,6 +337,7 @@
         <EntityContainer Name="hinothuducEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Banners" EntityType="Self.Banner" />
           <EntitySet Name="Blogs" EntityType="Self.Blog" />
+          <EntitySet Name="CateCars" EntityType="Self.CateCar" />
           <EntitySet Name="CateProducts" EntityType="Self.CateProduct" />
           <EntitySet Name="ImageProducts" EntityType="Self.ImageProduct" />
           <EntitySet Name="Products" EntityType="Self.Product" />
@@ -323,9 +357,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="hinothuducModelStoreContainer" CdmEntityContainer="hinothuducEntities">
+        <EntityContainerMapping StorageEntityContainer="hinothuduccomModelStoreContainer" CdmEntityContainer="hinothuducEntities">
           <EntitySetMapping Name="Banners">
-            <EntityTypeMapping TypeName="hinothuducModel.Banner">
+            <EntityTypeMapping TypeName="hinothuduc.comModel.Banner">
               <MappingFragment StoreEntitySet="Banner">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -340,7 +374,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Blogs">
-            <EntityTypeMapping TypeName="hinothuducModel.Blog">
+            <EntityTypeMapping TypeName="hinothuduc.comModel.Blog">
               <MappingFragment StoreEntitySet="Blog">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -357,9 +391,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CateProducts">
-            <EntityTypeMapping TypeName="hinothuducModel.CateProduct">
-              <MappingFragment StoreEntitySet="CateProduct">
+          <EntitySetMapping Name="CateCars">
+            <EntityTypeMapping TypeName="hinothuduc.comModel.CateCar">
+              <MappingFragment StoreEntitySet="CateCar">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -373,8 +407,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="CateProducts">
+            <EntityTypeMapping TypeName="hinothuduc.comModel.CateProduct">
+              <MappingFragment StoreEntitySet="CateProduct">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Meta" ColumnName="Meta" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="idCateCar" ColumnName="idCateCar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="ImageProducts">
-            <EntityTypeMapping TypeName="hinothuducModel.ImageProduct">
+            <EntityTypeMapping TypeName="hinothuduc.comModel.ImageProduct">
               <MappingFragment StoreEntitySet="ImageProduct">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
@@ -390,7 +441,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="hinothuducModel.Product">
+            <EntityTypeMapping TypeName="hinothuduc.comModel.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdCateProcduct" ColumnName="IdCateProcduct" />
@@ -409,7 +460,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Services">
-            <EntityTypeMapping TypeName="hinothuducModel.Service">
+            <EntityTypeMapping TypeName="hinothuduc.comModel.Service">
               <MappingFragment StoreEntitySet="Service">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -427,7 +478,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserAdmins">
-            <EntityTypeMapping TypeName="hinothuducModel.UserAdmin">
+            <EntityTypeMapping TypeName="hinothuduc.comModel.UserAdmin">
               <MappingFragment StoreEntitySet="UserAdmin">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
