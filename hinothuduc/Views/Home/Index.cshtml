@@ -1,4 +1,4 @@
-﻿@{
+﻿    @{
     ViewBag.Title = "Trang Chủ";
 }
 
@@ -17,12 +17,12 @@
                                                 <select class="search_categories resize-select mb-0" name="product_cat"><option value="" selected='selected'>All</option><option value="xe-ben-hino">Xe Ben Hino</option><option value="xe-cau-hino">Xe Cẩu Hino</option><option value="xe-chuyen-dung-hino">Xe Chuyên Dụng Hino</option><option value="xe-dau-keo-hino">Xe Đầu Kéo Hino</option><option value="xe-tai-hino">Xe Tải Hino</option></select>
                                             </div>
                                             <div class="flex-col flex-grow">
-                                                <label class="screen-reader-text" for="woocommerce-product-search-field-1">Tìm kiếm:</label>
-                                                <input type="search" id="woocommerce-product-search-field-1" class="search-field mb-0" placeholder="Nhập xe bạn cần tìm..." value="" name="s" />
-                                                <input type="hidden" name="post_type" value="product" />
+                                                <label class="screen-reader-text" for="">Tìm kiếm:</label>
+                                                <input type="search" id="" class="search-field mb-0" placeholder="Nhập xe bạn cần tìm..." value="" name="ss" />
+                                                <input type="hidden" name="post_type" value="product"wfd-invisible="true" />
                                             </div>
                                             <div class="flex-col">
-                                                <button type="submit" value="Tìm kiếm" class="ux-search-submit submit-button secondary button icon mb-0" aria-label="Submit">
+                                                <button id="seach" value="Tìm kiếm" class="ux-search-submit submit-button secondary button icon mb-0" aria-label="Submit">
 
                                                     <img src="~/Images/icons8-search-24.png" />
                                                 </button>
@@ -50,11 +50,11 @@
                                             <div class="wbcslider-main slider slider-nav-dots-simple slider-nav-simple slider-nav-normal slider-nav-light slider-style-normal"
                                                  data-flickity-options='{"cellAlign": "center","imagesLoaded": true,"lazyLoad": 1,"freeScroll": false,"wrapAround": true,"autoPlay": 3000,
                                                  "pauseAutoPlayOnHover" : true,"prevNextButtons": true,"contain" : true,"adaptiveHeight" : true,"dragThreshold" : 5,"percentPosition": true,
-                                                 "pageDots": false,"rightToLeft": false,"draggable": true,"selectedAttraction": 0.1,"parallax" : 0,"friction": 0.6 }' >
+                                                 "pageDots": false,"rightToLeft": false,"draggable": true,"selectedAttraction": 0.1,"parallax" : 0,"friction": 0.6 }'>
                                             </div>
                                             <div class="swiper mySwiper">
-                                                <div class="swiper-wrapper"id="banner">
- 
+                                                <div class="swiper-wrapper" id="banner">
+
                                                 </div>
                                                 <div class="swiper-button-next"></div>
                                                 <div class="swiper-button-prev"></div>
@@ -104,7 +104,53 @@
                     <div id="producthome">
 
                     </div>
+                    <style>
+                        .mySwiper1 .swiper-slide img{
+                            width:110px;
+                            height:60px;
+                        }
+                    </style>
+                    <div class="swiper mySwiper1">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="~/Images/PartnerImage/jt-express.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/Images/PartnerImage/logo-cantho.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/Images/PartnerImage/logo-dinhviso.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/Images/PartnerImage/logo-htl.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/Images/PartnerImage/logo-lamberet.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/Images/PartnerImage/logo-nhua-tin-thanh.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/Images/PartnerImage/logo-pepsico.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/Images/PartnerImage/logo-pti.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/Images/PartnerImage/logo-quyen-auto.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/Images/PartnerImage/logo-sostran.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/Images/PartnerImage/logo-vibbank.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/Images/PartnerImage/tra-sas.jpg" />
+                            </div>
 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -134,6 +180,37 @@
                     }
                 }
             })
+        }
+
+        var x = window.matchMedia("(max-width: 400px)")
+        var y = window.matchMedia("(max-width: 800px)")
+        if (x.matches) { // If media query matches
+            var swiper = new Swiper(".mySwiper1", {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 500,
+                },
+            });
+        } else if (y.matches) {
+            var swiper = new Swiper(".mySwiper1", {
+                slidesPerView: 4,
+                spaceBetween: 30,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 500,
+                },
+            });
+        } else {
+            var swiper = new Swiper(".mySwiper1", {
+                slidesPerView: 6,
+                spaceBetween: 30,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 500,
+                },
+            });
         }
         var swiper = new Swiper(".mySwiper", {
             navigation: {
@@ -246,5 +323,9 @@
                 }
             })
         }
+        $('#seach').click(function () {
+            var seach = $('input[name="ss"]').val().trim()
+            Seachs(seach)
+        })
     </script>
 }

@@ -137,6 +137,7 @@
     <Compile Include="Areas\Hino\Controllers\DefaultController.cs" />
     <Compile Include="Areas\Hino\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Hino\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Hino\Controllers\RescueServiceController.cs" />
     <Compile Include="Areas\Hino\Controllers\ServiceController.cs" />
     <Compile Include="Areas\Hino\HinoAreaRegistration.cs" />
     <Compile Include="Controllers\BannersController.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="Controllers\CateProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\RescueServicesController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -181,6 +183,9 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RescueService.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Service.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -197,6 +202,7 @@
     <Content Include="Areas\Scripts\CateHYUNDAI.js" />
     <Content Include="Areas\Scripts\CateISUZU.js" />
     <Content Include="Areas\Scripts\Product.js" />
+    <Content Include="Areas\Scripts\RescueService.js" />
     <Content Include="Areas\Scripts\Service.js" />
     <Content Include="assets\css\pages\error\error-3.css" />
     <Content Include="assets\css\pages\error\error-4.css" />
@@ -2128,21 +2134,41 @@
     <Content Include="Images\Hino-5245-1571370752.jpg" />
     <Content Include="Images\icons8-clock-18.png" />
     <Content Include="Images\icons8-close-30.png" />
+    <Content Include="Images\icons8-facebook-messenger-24.png" />
     <Content Include="Images\icons8-filter-16.png" />
     <Content Include="Images\icons8-gmail-logo-18.png" />
     <Content Include="Images\icons8-image-16.png" />
     <Content Include="Images\icons8-left-20.png" />
     <Content Include="Images\icons8-location-18.png" />
+    <Content Include="Images\icons8-location-24.png" />
+    <Content Include="Images\icons8-mail-24.png" />
     <Content Include="Images\icons8-menu-25.png" />
     <Content Include="Images\icons8-next-page-13.png" />
     <Content Include="Images\icons8-open-file-folder-18.png" />
     <Content Include="Images\icons8-phone-18.png" />
+    <Content Include="Images\icons8-phone-24.png" />
     <Content Include="Images\icons8-right-20.png" />
     <Content Include="Images\icons8-search-24.png" />
     <Content Include="Images\icons8-sedan-19.png" />
     <Content Include="Images\icons8-shopping-cart-15.png" />
+    <Content Include="Images\icons8-zalo-24.png" />
     <Content Include="Images\images-42-1-300x154.jpg" />
-    <Content Include="Images\logohino-1024x1024 %281%29.png" />
+    <Content Include="Images\logohino-1024x1024 %281%29.jpg" />
+    <Content Include="Images\PartnerImage\jt-express.jpg" />
+    <Content Include="Images\PartnerImage\logo-cantho.png" />
+    <Content Include="Images\PartnerImage\logo-dinhviso.png" />
+    <Content Include="Images\PartnerImage\logo-htl.png" />
+    <Content Include="Images\PartnerImage\logo-lamberet.png" />
+    <Content Include="Images\PartnerImage\logo-nhua-tin-thanh.png" />
+    <Content Include="Images\PartnerImage\logo-pepsico.png" />
+    <Content Include="Images\PartnerImage\logo-pti.png" />
+    <Content Include="Images\PartnerImage\logo-quyen-auto.png" />
+    <Content Include="Images\PartnerImage\logo-sostran.png" />
+    <Content Include="Images\PartnerImage\logo-vibbank.png" />
+    <Content Include="Images\PartnerImage\tra-sas.jpg" />
+    <Content Include="Images\z3775771398862_d6e4c50bac04c0b643cd0b2da8ced44a.jpg" />
+    <Content Include="Images\z3775771398927_d26803102e2a088806b26cc66cb061be.jpg" />
+    <Content Include="Images\z3780852280975_3d70523135288d803732189cbcb72e37.jpg" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -2218,6 +2244,12 @@
     <Content Include="Areas\Hino\Views\Blog\Adds.cshtml" />
     <Content Include="Areas\Hino\Views\Blog\Edits.cshtml" />
     <Content Include="Areas\Hino\Views\Product\Image.cshtml" />
+    <Content Include="Areas\Hino\Views\CateISUZU\Index.cshtml" />
+    <Content Include="Areas\Hino\Views\CateISUZU\Adds.cshtml" />
+    <Content Include="Areas\Hino\Views\CateISUZU\Edits.cshtml" />
+    <Content Include="Areas\Hino\Views\CateHYUNDAI\Index.cshtml" />
+    <Content Include="Areas\Hino\Views\CateHYUNDAI\Adds.cshtml" />
+    <Content Include="Areas\Hino\Views\CateHYUNDAI\Edits.cshtml" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -2225,12 +2257,9 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Hino\Views\CateISUZU\Index.cshtml" />
-    <Content Include="Areas\Hino\Views\CateISUZU\Adds.cshtml" />
-    <Content Include="Areas\Hino\Views\CateISUZU\Edits.cshtml" />
-    <Content Include="Areas\Hino\Views\CateHYUNDAI\Index.cshtml" />
-    <Content Include="Areas\Hino\Views\CateHYUNDAI\Adds.cshtml" />
-    <Content Include="Areas\Hino\Views\CateHYUNDAI\Edits.cshtml" />
+    <Content Include="Areas\Hino\Views\RescueService\Index.cshtml" />
+    <Content Include="Areas\Hino\Views\RescueService\Adds.cshtml" />
+    <Content Include="Areas\Hino\Views\RescueService\Edits.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -2285,6 +2314,9 @@
     <Content Include="Views\Home\CSMX.cshtml" />
     <Content Include="Views\Home\CSBH.cshtml" />
     <Content Include="Views\Home\CSBT.cshtml" />
+    <Content Include="Views\RescueService\Index.cshtml" />
+    <Content Include="Views\RescueServices\Index.cshtml" />
+    <Content Include="Views\RescueServices\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

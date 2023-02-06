@@ -802,11 +802,11 @@ body, .container, .full-width .ubermenu-nav, .container-width, .row {
     }
 
     .row.row-small {
-        max-width: 1065px
+        max-width: 100%
     }
 
     .row.row-large {
-        max-width: 1110px
+        max-width: 100%
     }
 
 body.framed, body.framed header, body.framed .header-wrapper, body.boxed, body.boxed header, body.boxed .header-wrapper, body.boxed .is-sticky-section {

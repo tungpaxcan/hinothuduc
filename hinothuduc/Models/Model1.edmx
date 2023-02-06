@@ -100,6 +100,23 @@
           <Property Name="ModifyBy" Type="nvarchar(max)" />
           <Property Name="Status" Type="bit" />
         </EntityType>
+        <EntityType Name="RescueService">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" />
+          <Property Name="Meta" Type="varchar" MaxLength="250" />
+          <Property Name="Image" Type="nvarchar" MaxLength="250" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar(max)" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifyBy" Type="nvarchar(max)" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
         <EntityType Name="Service">
           <Key>
             <PropertyRef Name="Id" />
@@ -163,6 +180,7 @@
           <EntitySet Name="CateProduct" EntityType="Self.CateProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ImageProduct" EntityType="Self.ImageProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RescueService" EntityType="Self.RescueService" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserAdmin" EntityType="Self.UserAdmin" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ImageProduct_Product" Association="Self.FK_ImageProduct_Product">
@@ -278,6 +296,23 @@
           <NavigationProperty Name="CateProduct" Relationship="Self.FK_Product_CateProduct" FromRole="Product" ToRole="CateProduct" />
           <NavigationProperty Name="ImageProducts" Relationship="Self.FK_ImageProduct_Product" FromRole="Product" ToRole="ImageProduct" />
         </EntityType>
+        <EntityType Name="RescueService">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Meta" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
         <EntityType Name="Service">
           <Key>
             <PropertyRef Name="Id" />
@@ -341,6 +376,7 @@
           <EntitySet Name="CateProducts" EntityType="Self.CateProduct" />
           <EntitySet Name="ImageProducts" EntityType="Self.ImageProduct" />
           <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="RescueServices" EntityType="Self.RescueService" />
           <EntitySet Name="Services" EntityType="Self.Service" />
           <EntitySet Name="UserAdmins" EntityType="Self.UserAdmin" />
           <AssociationSet Name="FK_Product_CateProduct" Association="Self.FK_Product_CateProduct">
@@ -445,6 +481,24 @@
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdCateProcduct" ColumnName="IdCateProcduct" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Meta" ColumnName="Meta" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RescueServices">
+            <EntityTypeMapping TypeName="hinothuduc.comModel.RescueService">
+              <MappingFragment StoreEntitySet="RescueService">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Meta" ColumnName="Meta" />

@@ -33,6 +33,16 @@ defaults: new { controller = "Blogs", action = "Contact", id = UrlParameter.Opti
           defaults: new { controller = "Services", action = "Detail", id = UrlParameter.Optional }
       );
             routes.MapRoute(
+    name: "dicvucuuho",
+    url: "dich-vu-cuu-ho/{meta}/{id}",
+    defaults: new { controller = "RescueServices", action = "Detail", id = UrlParameter.Optional }
+);
+            routes.MapRoute(
+         name: "dicvucuuho1",
+         url: "dich-vu-cuu-ho/{action}/{id}",
+         defaults: new { controller = "RescueServices", action = "Index", id = UrlParameter.Optional }
+     );
+            routes.MapRoute(
            name: "TraGop",
            url: "ho-tro-tra-gop/{action}/{id}",
            defaults: new { controller = "Services", action = "TraGop", id = UrlParameter.Optional }

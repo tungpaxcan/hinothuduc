@@ -33,6 +33,10 @@ namespace hinothuduc.Controllers
         {
             return View();
         }
+        public ActionResult DICHVUCUUHO()
+        {
+            return View();
+        }
         [HttpGet]
         public JsonResult AllService()
         {

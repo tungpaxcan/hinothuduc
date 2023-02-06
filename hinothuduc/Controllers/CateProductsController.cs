@@ -39,6 +39,7 @@ namespace hinothuduc.Controllers
                              name = b.Name
                          }).ToList();
                 var c = (from b in db.CateCars.Where(x => x.Id.Length > 0)
+                         orderby b.ModifyDate descending
                          select new
                          {
                              meta = b.Meta,

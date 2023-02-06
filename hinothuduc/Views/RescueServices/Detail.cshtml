@@ -1,4 +1,4 @@
-﻿@model hinothuduc.Models.Service
+﻿@model hinothuduc.Models.RescueService
 @{
     ViewBag.Title = Model.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,13 +7,13 @@
 <main id="main" class="">
     <div id="content" class="blog-wrapper blog-single page-wrapper">
         <div class="row row-large ">
-           <div class="large-9 col">
+            <div class="large-9 col">
                 <article id="post-4053" class="post-4053 post type-post status-publish format-standard has-post-thumbnail hentry category-dich-vu">
                     <div class="article-inner ">
                         <header class="entry-header">
                             <div class="entry-header-text entry-header-text-top text-center">
                                 <h6 class="entry-category is-xsmall">
-                                    <a href="/dich-vu/" rel="category tag">Dịch vụ</a>
+                                    <a href="/dich-vu-cuu-ho/" rel="category tag">Dịch vụ Cứu Hộ</a>
                                 </h6>
                                 <h1 class="entry-title">@Model.Name</h1>
                                 <div class="entry-divider is-divider small"></div>
@@ -31,7 +31,7 @@
                             <div class="service-mid">
                                 <div class="noidung_content mb">
                                     <div align="justify">
-                                       @(new HtmlString(Model.Content))
+                                        @(new HtmlString(Model.Content))
                                     </div>
                                 </div>
                             </div>
@@ -123,7 +123,7 @@
                                     </style>
                                 </div>
                             </div>
-                           <style>
+                            <style>
                                 #section_1645639996 {
                                     padding-top: 20px;
                                     padding-bottom: 20px;
@@ -131,10 +131,9 @@
                             </style>
                         </section>
                     </aside>
-                    <aside  id="flatsome_recent_posts-3" class="widget flatsome_recent_posts">
-                        <span class="widget-title "><span>Bài viết &#8211; tin tức</span></span><div class="is-divider small"></div>	
+                    <aside id="flatsome_recent_posts-3" class="widget flatsome_recent_posts">
+                        <span class="widget-title "><span>Bài viết &#8211; tin tức</span></span><div class="is-divider small"></div>
                         <ul id="blog10">
-
                         </ul>
                     </aside>
                 </div>
@@ -175,5 +174,6 @@
             })
         }
     </script>
-    }
+}
+
 

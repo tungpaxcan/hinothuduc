@@ -1,13 +1,13 @@
-﻿@model hinothuduc.Models.Service
+﻿@model hinothuduc.Models.RescueService
 @{
-    ViewBag.Title = "Sửa Dịch Vụ " +Model.Name;
+    ViewBag.Title = "Sửa Dịch Vụ Cứu Hộ" + Model.Name;
     Layout = "~/Areas/Hino/Views/Shared/_Layout.cshtml";
 }
-<input hidden value="@Model.Id" id="id" />
+<input value="@Model.Id" hidden id="id" />
 <div class="card card-custom">
     <div class="card-header">
         <h3 class="card-title">
-            Sửa Dịch Vụ
+            Sửa Dịch Vụ Cứu Hộ
         </h3>
     </div>
     <!--begin::Form-->
@@ -21,10 +21,10 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-password-input" class="col-2 col-form-label">Tên Dịch Vụ <span style="color:red"> (*) </span></label>
+            <label for="example-password-input" class="col-2 col-form-label">Tên Dịch Vụ Cứu Hộ<span style="color:red"> (*) </span></label>
             <div class="col-10">
                 <div class="input-group ">
-                    <input class="form-control" type="text" value="@Model.Name" placeholder="Tên Dịch Vụ " id="name" />
+                    <input class="form-control" type="text" value="@Model.Name" placeholder="Tên Dịch Vụ Cứu Hộ" id="name" />
                     <input hidden class="form-control" type="text" value="@Model.Title" placeholder="Tên Sản Phẩm " id="title" />
                     <input hidden class="form-control" type="text" value="@Model.Meta" placeholder="Tên Sản Phẩm " id="meta" />
                 </div>
@@ -36,7 +36,7 @@
                 <input type="text" value="@Model.Image" hidden name="picture" id="picturefile" class="form-control" />
                 <input type="file" id="fileUpload" name="fileUpload" accept="image/*" style="display:none" />
                 <input type="button" id="btnUpload" value="..." class="btn-bg-success" />
-                <img style="width:100px" src="@Model.Image" id="picture" />
+                <img style="width:100px" id="picture" src="@Model.Image" />
             </div>
         </div>
         <div class="form-group row">
@@ -54,30 +54,30 @@
             </div>
             <div class="col-10">
                 <button type="submit" class="btn btn-success mr-2" onclick="Edit()">Submit</button>
-                <a href="/Hino/Service/Index" type="reset" class="btn btn-secondary">Cancel</a>
+                <a href="/Hino/RescueService/Index" type="reset" class="btn btn-secondary">Cancel</a>
             </div>
         </div>
     </div>
 </div>
 @section scripts{
 
-    <script src="~/Areas/Scripts/Service.js"></script>
+    <script src="~/Areas/Scripts/RescueService.js"></script>
     <script>
         Detail()
         function Detail() {
             var id = $('#id').val().trim();
             $.ajax({
                 type: 'get',
-                url: '/hino/service/Detail',
-                data: {id},
+                url: '/hino/rescueservice/Detail',
+                data: { id },
                 success: function (data) {
                     if (data.code == 200) {
-
-                        $('#content').summernote('code',data.content)
+                        $('#content').summernote('code', data.content)
                     }
                 }
             })
         }
     </script>
 }
+
 

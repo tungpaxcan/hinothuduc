@@ -4,12 +4,11 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Script.Serialization;
 using hinothuduc.Models;
 
 namespace hinothuduc.Areas.Hino.Controllers
 {
-    public class ServiceController : BaseController
+    public class RescueServiceController : BaseController
     {
         private hinothuducEntities db = new hinothuducEntities();
         // GET: Hino/Service
@@ -28,7 +27,7 @@ namespace hinothuduc.Areas.Hino.Controllers
                     var sub21 = sub2.Replace(":", "");
                     string _FileName = "";
                     int index = file.FileName.IndexOf('.');
-                    _FileName = sub11 + sub21 + "Service" + file.FileName;
+                    _FileName = sub11 + sub21 + "RescueService" + file.FileName;
                     file.SaveAs(Server.MapPath("/Images/" + _FileName));
                     return "/Images/" + _FileName;
                 }
@@ -50,12 +49,12 @@ namespace hinothuduc.Areas.Hino.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Service service = db.Services.Find(id);
-            if (service == null)
+            RescueService rescueService = db.RescueServices.Find(id);
+            if (rescueService == null)
             {
                 return HttpNotFound();
             }
-            return View(service);
+            return View(rescueService);
         }
         [HttpGet]
         public JsonResult List(int pagenum, int page, string seach)
@@ -63,7 +62,7 @@ namespace hinothuduc.Areas.Hino.Controllers
             try
             {
                 var pageSize = pagenum;
-                var a = (from b in db.Services.Where(x => x.Id > 0 && x.Status == true)
+                var a = (from b in db.RescueServices.Where(x => x.Id > 0 && x.Status == true)
                          select new
                          {
                              id = b.Id,
@@ -80,14 +79,14 @@ namespace hinothuduc.Areas.Hino.Controllers
                 return Json(new { code = 500, msg = "Sai !!!" + e.Message }, JsonRequestBehavior.AllowGet);
             }
         }
-        [HttpPost,ValidateInput(false)]
-        public JsonResult Add(string name, string title, string meta,string image,string content)
+        [HttpPost, ValidateInput(false)]
+        public JsonResult Add(string name, string title, string meta, string image, string content)
         {
             try
             {
                 var session = (UserAdmin)Session["user"];
                 var nameAdmin = session.Name;
-                var d = new Service();
+                var d = new RescueService();
                 d.Name = name;
                 d.Title = title;
                 d.Meta = meta;
@@ -98,7 +97,7 @@ namespace hinothuduc.Areas.Hino.Controllers
                 d.CreateBy = nameAdmin;
                 d.ModifyBy = nameAdmin;
                 d.Status = true;
-                db.Services.Add(d);
+                db.RescueServices.Add(d);
                 db.SaveChanges();
                 return Json(new { code = 200, msg = "Hiển Thị Dữ liệu thành công" }, JsonRequestBehavior.AllowGet);
 
@@ -109,14 +108,14 @@ namespace hinothuduc.Areas.Hino.Controllers
             }
         }
         [HttpPost, ValidateInput(false)]
-        public JsonResult Edit(int id, string name, string title, string meta,string image,string content)
+        public JsonResult Edit(int id, string name, string title, string meta, string image, string content)
         {
             try
             {
                 db.Configuration.ProxyCreationEnabled = false;
                 var session = (UserAdmin)Session["user"];
                 var nameAdmin = session.Name;
-                var d = db.Services.Find(id);
+                var d = db.RescueServices.Find(id);
                 d.Name = name;
                 d.Title = title;
                 d.Meta = meta;
@@ -138,8 +137,8 @@ namespace hinothuduc.Areas.Hino.Controllers
         {
             try
             {
-                var d = db.Services.Find(id);
-                db.Services.Remove(d);
+                var d = db.RescueServices.Find(id);
+                db.RescueServices.Remove(d);
                 db.SaveChanges();
                 return Json(new { code = 200, msg = "Hiển Thị Dữ liệu thành công" }, JsonRequestBehavior.AllowGet);
 
@@ -154,9 +153,9 @@ namespace hinothuduc.Areas.Hino.Controllers
         {
             try
             {
-                
-                var d = db.Services.Find(id);
+                var d = db.RescueServices.Find(id);
                 var content = d.Content;
+                db.SaveChanges();
                 return Json(new { code = 200, content = content }, JsonRequestBehavior.AllowGet);
 
             }
